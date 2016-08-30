@@ -1,0 +1,2 @@
+defmodule RallyApi do
+end

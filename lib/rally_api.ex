@@ -30,4 +30,29 @@ defmodule RallyApi do
   end
 
   def authorization_header(_, headers), do: headers
+
+  @doc """
+  The Rally API collects non-proprietary and non-confidential information to track usage patterns and improve their products.
+
+  ## Examples
+
+    iex> RallyApi.custom_headers
+    [{"X-RallyIntegrationPlatform", "Elixir 1.3.2"}, {"X-RallyIntegrationLibrary", "RallyRestToolkitForElixir"}]
+
+    iex> RallyApi.custom_headers([{"X-RallyIntegrationName", "MyApp"}])
+    [{"X-RallyIntegrationName", "MyApp"}, {"X-RallyIntegrationPlatform", "Elixir 1.3.2"}, {"X-RallyIntegrationLibrary", "RallyRestToolkitForElixir"}]
+
+  ## More info
+  https://rally1.rallydev.com/slm/doc/webservice/clientinfo.jsp
+  """
+  def custom_headers(custom, headers \\ custom_headers) when is_list(custom) do
+    custom ++ headers
+  end
+
+  def custom_headers do
+    _defaults = [
+      {"X-RallyIntegrationPlatform", "Elixir #{System.version}"},
+      {"X-RallyIntegrationLibrary", "RallyRestToolkitForElixir"}
+    ]
+  end
 end

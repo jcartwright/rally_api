@@ -16,4 +16,31 @@ defmodule RallyApiTest do
     headers = [{"X-RallyIntegrationName", "RallyRestToolkitForElixir"}]
     assert authorization_header(%{unknown: "barbaz"}, [{"X-RallyIntegrationName", "RallyRestToolkitForElixir"}]) == headers
   end
+
+  test "custom_headers with defaults" do
+    defaults = [
+      {"X-RallyIntegrationPlatform", "Elixir #{System.version}"},
+      {"X-RallyIntegrationLibrary", "RallyRestToolkitForElixir"}
+    ]
+    assert custom_headers() == defaults
+  end
+
+  test "custom_headers with overrides" do
+    custom = [
+      {"X-RallyIntegrationName", "MyApp"}, 
+      {"X-RallyIntegrationVendor", "MyCo"}, 
+      {"X-RallyIntegrationVersion", "0.1.23"}, 
+      {"X-RallyIntegrationOS", "Mac OSX 10.11.6"}
+    ]
+    expected = [
+      {"X-RallyIntegrationName", "MyApp"},
+      {"X-RallyIntegrationVendor", "MyCo"},
+      {"X-RallyIntegrationVersion", "0.1.23"},
+      {"X-RallyIntegrationOS", "Mac OSX 10.11.6"},
+      {"X-RallyIntegrationPlatform", "Elixir #{System.version}"},
+      {"X-RallyIntegrationLibrary", "RallyRestToolkitForElixir"}
+    ]
+
+    assert custom_headers(custom) == expected
+  end
 end

@@ -1,5 +1,44 @@
 defmodule RallyApi do
-  # alias RallyApi.Client
+  use HTTPoison.Base
+  alias RallyApi.Client
+
+  def get(path, client, query \\ "", fetch \\ false, options \\ []) do
+    url = 
+      client
+      |> url(path)
+      |> append_query(query)
+
+    # IO.inspect url
+
+    headers = authorization_header(
+      client.auth, custom_headers)
+
+    case HTTPoison.get(url, headers) do
+      {:ok, resp} ->
+        resp.body
+        |> Poison.Parser.parse!
+        |> extract_results
+      {:error, reason} ->
+        IO.puts "Error: #{reason}"
+        []
+    end
+  end
+
+  defp url(_client = %Client{endpoint: endpoint}, path) do
+    endpoint <> path
+  end
+
+  defp append_query(path, query) when query == "", do: path
+
+  defp append_query(path, query) do
+    path <> "?query=#{URI.encode(query)}"
+  end
+
+  defp extract_results(%{"QueryResult" => query_result} = resp) do
+    resp["QueryResult"]["Results"]
+  end
+
+  defp extract_results(resp), do: resp
 
   @doc """
   There are two ways to authenticate through the Rally REST API v2:

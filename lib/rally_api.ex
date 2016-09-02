@@ -8,10 +8,7 @@ defmodule RallyApi do
       |> url(path)
       |> append_query(query)
 
-    # IO.inspect url
-
-    headers = authorization_header(
-      client.auth, custom_headers)
+    headers = authorization_header(client.auth, custom_headers)
 
     case HTTPoison.get(url, headers) do
       {:ok, resp} ->
@@ -38,6 +35,7 @@ defmodule RallyApi do
     resp["QueryResult"]["Results"]
   end
 
+  # if we don't get a %{"QueryResult"}, just return the response
   defp extract_results(resp), do: resp
 
   @doc """

@@ -21,13 +21,15 @@ defmodule RallyApi.ProjectsTest do
   end
 
   test "find/2 query, client" do
-    use_cassette "projects#find" do
+    use_cassette "projects#find", match_requests_on: [:query] do
       [%{"_refObjectName" => name}] = find("(Name = \"Training Sandbox\")", @client)
       assert name == "Training Sandbox"
+
+      projects = find("(Owner.LastName = Cartwright)", @client)
+      assert Enum.map(projects, &(&1["_refObjectName"])) == ["NewCo Products", "Data Architecture"]
     end
   end
 
-  @tag :wip
   test "read/2 _ref, client" do
     use_cassette "projects#read" do
       %{"Project" => %{"_ref" => ref}} = read(@_ref, @client)

@@ -1,8 +1,18 @@
 # RallyApi
 
-**TODO: Add description**
+RallyApi (rally_api) is a wrapper for Rally's REST Web Services API. Documentation
+on the API can be found [here](https://rally1.rallydev.com/slm/doc/webservice/).
 
-## Installation
+## License
+
+Distributed under the MIT License.
+
+## Warranty
+
+The Elixir Toolkit for Rally REST API is available on an as-is basis. It is a
+work-in-progress.
+
+### Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
 
@@ -22,3 +32,9 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
     end
     ```
 
+### Usage
+
+Rally's REST Web Services API supports 2 types of authentication.
+
+* Basic authentication
+* API Key

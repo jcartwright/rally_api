@@ -36,7 +36,8 @@ defmodule RallyApi.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [ {:httpoison, "~> 0.9.0"},
-      {:poison, "~> 2.0"} ]
+      {:poison, "~> 2.0"},
+      {:exvcr, "~> 0.8.2", only: :test} ]
   end
 
   defp package do

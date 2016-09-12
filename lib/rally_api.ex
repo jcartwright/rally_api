@@ -1,42 +1,45 @@
 defmodule RallyApi do
   use HTTPoison.Base
-  alias RallyApi.Client
+  alias RallyApi.{Client, QueryResult}
 
-  def get(path, client, query \\ "", fetch \\ false, options \\ []) do
-    url = 
+  def get(client, path, query \\ "", fetch \\ "", options \\ []) do
+    headers = 
+      client.auth
+      |> authorization_header(custom_headers)
+
+    result = 
       client
       |> url(path)
       |> append_query(query)
+      |> append_fetch(fetch)
+      |> get!(headers)
+      |> QueryResult.to_result
 
-    headers = authorization_header(client.auth, custom_headers)
-
-    case HTTPoison.get(url, headers) do
-      {:ok, resp} ->
-        resp.body
-        |> Poison.Parser.parse!
-        |> extract_results
-      {:error, reason} ->
-        IO.puts "Error: #{reason}"
-        []
+    case result do
+      %QueryResult{} = result ->
+        if Enum.empty?(result.errors),
+        do:   {:ok, result},
+        else: {:error, Enum.at(result.errors, 0)}
+      %{} = result ->
+        {:ok, result}
     end
   end
 
-  defp url(_client = %Client{endpoint: endpoint}, path) do
+  def url(_client = %Client{endpoint: endpoint}, path) do
     endpoint <> path
   end
 
-  defp append_query(path, query) when query == "", do: path
+  def append_query(path, query) when query == "", do: path
 
-  defp append_query(path, query) do
+  def append_query(path, query) do
     path <> "?query=#{URI.encode(query)}"
   end
 
-  defp extract_results(%{"QueryResult" => query_result} = resp) do
-    resp["QueryResult"]["Results"]
-  end
+  def append_fetch(path, fetch) when fetch == "", do: path
 
-  # if we don't get a %{"QueryResult"}, just return the response
-  defp extract_results(resp), do: resp
+  def append_fetch(path, fetch) do
+    path <> "&fetch=#{URI.encode(fetch)}"
+  end
 
   @doc """
   There are two ways to authenticate through the Rally REST API v2:

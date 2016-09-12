@@ -11,7 +11,7 @@ defmodule RallyApi.Projects do
 
   """
   def list(client \\ %Client{}) do
-    get "project", client
+    get client, "project"
   end
 
   @doc """
@@ -19,12 +19,12 @@ defmodule RallyApi.Projects do
 
   ## Examples
 
-    RallyApi.Projects.find(%{name: "Training Sandbox"}, client)
-    RallyApi.Projects.find(%{_ref: "https://rally1.rallydev.com/slm/webservice/v2.0/project/55699003530"}, client)
+    RallyApi.Projects.find(client, %{name: "Training Sandbox"})
+    RallyApi.Projects.find(client, %{_ref: "https://rally1.rallydev.com/slm/webservice/v2.0/project/55699003530"})
 
   """
-  def find(query, client) do
-    get "project", client, query
+  def find(client, query) do
+    get client, "project", query
   end
 
   @doc """
@@ -32,14 +32,14 @@ defmodule RallyApi.Projects do
 
   ## Examples
 
-    RallyApi.Projects.read("https://rally1.rallydev.com/slm/webservice/v2.0/project/55699003530", client)
+    RallyApi.Projects.read(client, "https://rally1.rallydev.com/slm/webservice/v2.0/project/55699003530")
   """
-  def read(ref, client) do
+  def read(client, ref) do
     # chomp the last element from the ref url and issue a get
     ref_id = ref
     |> String.split("/")
     |> List.last
 
-    get "project/#{ref_id}", client
+    get client, "project/#{ref_id}"
   end
 end

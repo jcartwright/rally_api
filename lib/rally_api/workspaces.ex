@@ -11,6 +11,6 @@ defmodule RallyApi.Workspaces do
 
   """
   def list(client \\ %Client{}) do
-    get "workspace", client
+    get client, "workspace"
   end
 end

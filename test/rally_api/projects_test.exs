@@ -14,25 +14,26 @@ defmodule RallyApi.ProjectsTest do
 
   test "list/1" do
     use_cassette "projects#list" do
-      projects = list(@client)
-      refute Enum.empty?(projects)
-      assert Enum.reject(projects, &(&1["_type"] == "Project")) == []
+      {:ok, projects} = list(@client)
+      refute Enum.empty?(projects.results)
+      assert Enum.reject(projects.results, &(&1["_type"] == "Project")) == []
     end
   end
 
   test "find/2 query, client" do
     use_cassette "projects#find", match_requests_on: [:query] do
-      [%{"_refObjectName" => name}] = find("(Name = \"Training Sandbox\")", @client)
+      {:ok, %RallyApi.QueryResult{results: projects}} = find(@client, "(Name = \"Training Sandbox\")")
+      [%{"_refObjectName" => name}] = projects
       assert name == "Training Sandbox"
 
-      projects = find("(Owner.LastName = Cartwright)", @client)
+      {:ok, %RallyApi.QueryResult{results: projects}} = find(@client, "(Owner.LastName = Cartwright)")
       assert Enum.map(projects, &(&1["_refObjectName"])) == ["NewCo Products", "Data Architecture"]
     end
   end
 
   test "read/2 _ref, client" do
     use_cassette "projects#read" do
-      %{"Project" => %{"_ref" => ref}} = read(@_ref, @client)
+      {:ok, %{"Project" => %{"_ref" => ref}}} = read(@client, @_ref)
       assert ref == @_ref
     end
   end

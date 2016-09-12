@@ -13,7 +13,15 @@ defmodule RallyApi.WorkspacesTest do
 
   test "list/1" do
     use_cassette "workspaces#list" do
-      assert list(@client) == [%{"_rallyAPIMajor" => "2", "_rallyAPIMinor" => "0", "_ref" => "https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044", "_refObjectName" => "NewCo", "_refObjectUUID" => "ac74cbb3-2ddb-498f-b1a8-97a3d12c17aa", "_type" => "Workspace"}]
+      {:ok, result} = list(@client)
+
+      assert %RallyApi.QueryResult{} = result
+      assert result.results == [
+        %{"_rallyAPIMajor" => "2", "_rallyAPIMinor" => "0", 
+          "_ref" => "https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044", 
+          "_refObjectName" => "NewCo", "_refObjectUUID" => "ac74cbb3-2ddb-498f-b1a8-97a3d12c17aa", 
+          "_type" => "Workspace"}
+      ]
     end
   end
 

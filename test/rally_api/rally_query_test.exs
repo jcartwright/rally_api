@@ -33,7 +33,6 @@ defmodule RallyApi.RallyQueryTest do
     assert error == "invalid is not a valid query type"
   end
 
-  @tag :wip
   test "find/3 with invalid query" do
     use_cassette "rally_query#find_invalid", match_requests_on: [:query] do
       type = :story
@@ -44,5 +43,32 @@ defmodule RallyApi.RallyQueryTest do
     end
   end
 
+  test "find/4" do
+    use_cassette "rally_query#find_with_fetch" do
+      type = :story
+      query = "(Owner.LastName = Cartwright)"
+      fetch = "FormattedID,Name"
 
+      {:ok, %QueryResult{results: stories}} = find(@client, type, query, fetch)
+      refute Enum.empty?(stories)
+      Enum.each(stories, fn(r) -> 
+        assert Map.has_key?(r, "FormattedID") 
+        assert Map.has_key?(r, "Name")
+      end)
+    end
+  end
+  
+  test "find/4 ignores invalid fetch" do
+    use_cassette "rally_query#find_with_invalid_fetch" do
+      type = :story
+      query = "(Owner.LastName = Cartwright)"
+      fetch = "FormattedID,Invalid"
+
+      {_, %QueryResult{results: stories}} = find(@client, type, query, fetch)
+      Enum.each(stories, fn(r) ->
+        assert Map.has_key?(r, "FormattedID")
+        refute Map.has_key?(r, "Invalid")
+      end)
+    end
+  end
 end

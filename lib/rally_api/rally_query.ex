@@ -6,14 +6,16 @@ defmodule RallyApi.RallyQuery do
   #  %QueryResult{}
   # end
 
-  def find(client, type, query) do
+  def find(client, type, query, fetch) do
     case path_for(type) do
       {:ok, path} ->
         client
-        |> get(path, query)
+        |> get(path, query, fetch)
       {:error, reason} -> {:error, reason}
     end
   end
+
+  def find(client, type, query), do: find(client, type, query, "")
 
   def path_for(type) when is_atom(type) do
     case type do

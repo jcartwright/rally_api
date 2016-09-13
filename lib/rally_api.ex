@@ -2,7 +2,7 @@ defmodule RallyApi do
   use HTTPoison.Base
   alias RallyApi.{Client, QueryResult}
 
-  def get(client, path, query \\ "", fetch \\ "", options \\ []) do
+  def get(client, path, query \\ "", fetch \\ "") do
     headers = 
       client.auth
       |> authorization_header(custom_headers)

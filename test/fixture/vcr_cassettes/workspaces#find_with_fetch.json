@@ -1,0 +1,38 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "X-RallyIntegrationPlatform": "Elixir 1.3.2",
+        "X-RallyIntegrationLibrary": "RallyRestToolkitForElixir",
+        "ZSESSIONID": "_lopoalp1TxyqCH3p7s1FWco2ROI90uxpii7ubJYH8"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://rally1.rallydev.com/slm/webservice/v2.0/workspace?query=(Name%20=%20NewCo)&fetch=Name,Description"
+    },
+    "response": {
+      "body": "{\"QueryResult\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"Errors\": [], \"Warnings\": [], \"TotalResultCount\": 1, \"StartIndex\": 1, \"PageSize\": 20, \"Results\": [{\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044\", \"_refObjectUUID\": \"ac74cbb3-2ddb-498f-b1a8-97a3d12c17aa\", \"_objectVersion\": \"4\", \"_refObjectName\": \"NewCo\", \"Description\": \"This is the workspace for the new, combined organization\", \"Name\": \"NewCo\", \"_type\": \"Workspace\"}]}}",
+      "headers": {
+        "Date": "Tue, 13 Sep 2016 21:49:06 GMT",
+        "Content-Type": "application/json;  charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=de4eeb119568cebd3abb23ed4432ad4571473803346; expires=Wed, 13-Sep-17 21:49:06 GMT; path=/; domain=.rallydev.com; HttpOnly",
+        "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
+        "X-XSS-Protection": "1; mode=block",
+        "RallyRequestID": "qs-app-164xq810p8pjui1d9fmoxmyv59f.qs-app-161834350",
+        "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+        "ETag": "W/\"01d68bd19a813b42398971d16f98a2857\"",
+        "Vary": "Accept-Encoding",
+        "P3P": "CP=\"NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA\"",
+        "Cache-Control": "private,max-age=0,must-revalidate",
+        "Server": "cloudflare-nginx",
+        "CF-RAY": "2e1ecea1ca732006-DFW"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

@@ -1,32 +1,49 @@
 defmodule RallyApi.WorkspacesTest do
   use ExUnit.Case, async: false
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
+  
   import RallyApi.Workspaces
+  alias RallyApi.{Client, QueryResult}
 
   doctest RallyApi.Workspaces
 
-  @client RallyApi.Client.new(%{zsessionid: "_lopoalp1TxyqCH3p7s1FWco2ROI90uxpii7ubJYH8"})
-
-  setup_all do
-    HTTPoison.start
-  end
+  @client Client.new(%{zsessionid: "_lopoalp1TxyqCH3p7s1FWco2ROI90uxpii7ubJYH8"})
+  @_ref "https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044"
 
   test "list/1" do
     use_cassette "workspaces#list" do
-      {:ok, result} = list(@client)
+      {:ok, %QueryResult{results: workspaces}} = list(@client)
 
-      assert %RallyApi.QueryResult{} = result
-      assert result.results == [
-        %{"_rallyAPIMajor" => "2", "_rallyAPIMinor" => "0", 
+      assert workspaces == [%{"_rallyAPIMajor" => "2", "_rallyAPIMinor" => "0", 
           "_ref" => "https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044", 
           "_refObjectName" => "NewCo", "_refObjectUUID" => "ac74cbb3-2ddb-498f-b1a8-97a3d12c17aa", 
-          "_type" => "Workspace"}
-      ]
+          "_type" => "Workspace"}]
     end
   end
 
-  @tag :pending
-  test "find/#" do
-    assert false
+  test "find/2" do
+    use_cassette "workspaces#find" do
+      {:ok, %QueryResult{results: workspaces}} = find(@client, "(Name = NewCo)")
+      [%{"_refObjectName" => name}] = workspaces
+      
+      assert name == "NewCo"
+    end
+  end
+
+  test "find/3" do
+    use_cassette "workspaces#find_with_fetch" do
+      {:ok, %QueryResult{results: workspaces}} = find(@client, "(Name = NewCo)", "Name,Description")
+      [%{"Name" => name, "Description" => description}] = workspaces
+
+      assert name == "NewCo"
+      assert description == "This is the workspace for the new, combined organization"
+    end
+  end
+
+  test "read/2" do
+    use_cassette "workspaces#read" do
+      {:ok, %{"Workspace" => %{"_ref" => ref}}} = read(@client, @_ref)
+      assert ref == @_ref
+    end
   end
 end

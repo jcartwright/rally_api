@@ -1,6 +1,8 @@
 defmodule RallyApi.Projects do
   import RallyApi
-  alias RallyApi.Client
+  alias RallyApi.RallyQuery
+
+  @path RallyQuery.queryable_types[:project]
 
   @doc """
   List all projects _for a workspace_
@@ -10,8 +12,8 @@ defmodule RallyApi.Projects do
     RallyApi.Projects.list(client)
 
   """
-  def list(client \\ %Client{}) do
-    get client, "project"
+  def list(client) do
+    get client, @path
   end
 
   @doc """
@@ -19,12 +21,11 @@ defmodule RallyApi.Projects do
 
   ## Examples
 
-    RallyApi.Projects.find(client, %{name: "Training Sandbox"})
-    RallyApi.Projects.find(client, %{_ref: "https://rally1.rallydev.com/slm/webservice/v2.0/project/55699003530"})
+    RallyApi.Projects.find(client, "(Name = \"Training Sandbox\")")
 
   """
-  def find(client, query) do
-    get client, "project", query
+  def find(client, query, fetch \\ "") do
+    get client, @path, query, fetch
   end
 
   @doc """
@@ -33,6 +34,7 @@ defmodule RallyApi.Projects do
   ## Examples
 
     RallyApi.Projects.read(client, "https://rally1.rallydev.com/slm/webservice/v2.0/project/55699003530")
+
   """
   def read(client, ref) do
     # chomp the last element from the ref url and issue a get
@@ -40,6 +42,6 @@ defmodule RallyApi.Projects do
     |> String.split("/")
     |> List.last
 
-    get client, "project/#{ref_id}"
+    get client, "#{@path}/#{ref_id}"
   end
 end

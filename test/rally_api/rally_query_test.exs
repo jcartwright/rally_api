@@ -30,7 +30,7 @@ defmodule RallyApi.RallyQueryTest do
     query = "(Owner.LastName = Cartwright)"
 
     {:error, error} = find(@client, type, query)
-    assert error == "invalid is not a valid query type"
+    assert error == ":invalid is not a valid query type"
   end
 
   test "find/3 with invalid query" do
@@ -70,5 +70,16 @@ defmodule RallyApi.RallyQueryTest do
         refute Map.has_key?(r, "Invalid")
       end)
     end
+  end
+
+  test "path_for/1 with queryable types" do
+    Enum.each(queryable_types, fn(query_type) ->
+      assert {:ok, _path} = path_for(elem(query_type, 0))
+    end)
+  end
+
+  test "path_for/1 with unknown type" do
+    assert {:error, ":foobar is not a valid query type"} = path_for(:foobar)
+    assert {:error, ":foobar is not a valid query type"} = path_for("foobar")
   end
 end

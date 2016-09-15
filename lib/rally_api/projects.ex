@@ -28,6 +28,13 @@ defmodule RallyApi.Projects do
     get client, @path, query, fetch
   end
 
+  def find(client, query, fetch, options) do
+    # only allowed options here are:
+    # workspace: <ref or id>
+    # order: <valid order by string>
+    get client, @path, query, fetch, Keyword.take(options, [:workspace, :order])
+  end
+
   @doc """
   Lookup a project by its REST _ref url.
 

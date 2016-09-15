@@ -38,6 +38,21 @@ defmodule RallyApi.ProjectsTest do
     end
   end
 
+  test "find/4 scoped to workspace" do
+    ws_ref = "https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044"
+
+    use_cassette "projects#find_with_scope" do
+      {:ok, %QueryResult{results: projects}} = find(@client, "", "Workspace", workspace: ws_ref)
+      refute Enum.empty?(projects)
+      assert Enum.reject(projects, &(&1["Workspace"]["_ref"] == ws_ref)) == []
+      
+      ws_oid = "52931496044"
+      {:ok, %QueryResult{results: projects}} = find(@client, "", "Workspace", workspace: ws_oid)
+      refute Enum.empty?(projects)
+      assert Enum.reject(projects, &(&1["Workspace"]["_ref"] == ws_ref)) == []
+    end
+  end
+
   test "read/2" do
     use_cassette "projects#read" do
       {:ok, %{"Project" => %{"_ref" => ref}}} = read(@client, @_ref)

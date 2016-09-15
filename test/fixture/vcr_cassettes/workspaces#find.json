@@ -15,21 +15,21 @@
     "response": {
       "body": "{\"QueryResult\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"Errors\": [], \"Warnings\": [], \"TotalResultCount\": 1, \"StartIndex\": 1, \"PageSize\": 20, \"Results\": [{\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044\", \"_refObjectUUID\": \"ac74cbb3-2ddb-498f-b1a8-97a3d12c17aa\", \"_refObjectName\": \"NewCo\", \"_type\": \"Workspace\"}]}}",
       "headers": {
-        "Date": "Tue, 13 Sep 2016 21:49:06 GMT",
+        "Date": "Thu, 15 Sep 2016 21:47:56 GMT",
         "Content-Type": "application/json;  charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d3ec0d61ab1662b09f4ec5eb02393211e1473803345; expires=Wed, 13-Sep-17 21:49:05 GMT; path=/; domain=.rallydev.com; HttpOnly",
+        "Set-Cookie": "__cfduid=d872e036fd2b9db3871ce2f0f1983ffc21473976076; expires=Fri, 15-Sep-17 21:47:56 GMT; path=/; domain=.rallydev.com; HttpOnly",
         "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
         "X-XSS-Protection": "1; mode=block",
-        "RallyRequestID": "qs-app-121pxxg7w0tvmt71w2bgxe4bh6hx.qs-app-122250092",
+        "RallyRequestID": "qs-app-121uuvd1p1hto8cod6ygp3zy4lh.qs-app-122104465",
         "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
         "ETag": "W/\"02e8e7c7ce2d1f87e7864a46b333f4f3c\"",
         "Vary": "Accept-Encoding",
         "P3P": "CP=\"NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA\"",
         "Cache-Control": "private,max-age=0,must-revalidate",
         "Server": "cloudflare-nginx",
-        "CF-RAY": "2e1ece9d89ea2006-DFW"
+        "CF-RAY": "2e2f47ad0d025843-DFW"
       },
       "status_code": 200,
       "type": "ok"

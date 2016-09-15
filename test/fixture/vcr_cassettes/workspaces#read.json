@@ -10,26 +10,26 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044"
+      "url": "https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044?"
     },
     "response": {
-      "body": "{\"Workspace\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044\", \"_refObjectUUID\": \"ac74cbb3-2ddb-498f-b1a8-97a3d12c17aa\", \"_objectVersion\": \"4\", \"_refObjectName\": \"NewCo\", \"CreationDate\": \"2016-03-17T14:13:13.958Z\", \"_CreatedAt\": \"Mar 17\", \"ObjectID\": 52931496044, \"ObjectUUID\": \"ac74cbb3-2ddb-498f-b1a8-97a3d12c17aa\", \"VersionId\": \"4\", \"Subscription\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/subscription/16949477526\", \"_refObjectUUID\": \"1c6a9e32-a526-4a3d-914d-ac2bc68184cb\", \"_refObjectName\": \"Aetna - Consumer Digital\", \"_type\": \"Subscription\"}, \"Children\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Workspace/52931496044/Children\", \"_type\": \"Project\", \"Count\": 4}, \"Description\": \"This is the workspace for the new, combined organization\", \"Name\": \"NewCo\", \"Notes\": \"\", \"Owner\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/user/52872586845\", \"_refObjectUUID\": \"255a9f84-6a96-42c3-a9f8-9db855255d52\", \"_refObjectName\": \"Matt Bergenholtz\", \"_type\": \"User\"}, \"Projects\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Workspace/52931496044/Projects\", \"_type\": \"Project\", \"Count\": 22}, \"RevisionHistory\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/revisionhistory/52931496045\", \"_refObjectUUID\": \"c18f8f4f-520a-489a-abe1-a6203eb0c2c7\", \"_type\": \"RevisionHistory\"}, \"SchemaVersion\": \"54a027dbec309bea3780522fc7f4700b\", \"State\": \"Open\", \"Style\": \"UserStory\", \"TypeDefinitions\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Workspace/52931496044/TypeDefinitions\", \"_type\": \"TypeDefinition\", \"Count\": 58}, \"WorkspaceConfiguration\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/workspaceconfiguration/52931496044\", \"_refObjectUUID\": \"af0b8f22-07e6-4c48-8284-366cb6e8ec52\", \"_type\": \"WorkspaceConfiguration\"}, \"Errors\": [], \"Warnings\": []}}",
+      "body": "{\"Workspace\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044\", \"_refObjectUUID\": \"ac74cbb3-2ddb-498f-b1a8-97a3d12c17aa\", \"_objectVersion\": \"4\", \"_refObjectName\": \"NewCo\", \"CreationDate\": \"2016-03-17T14:13:13.958Z\", \"_CreatedAt\": \"Mar 17\", \"ObjectID\": 52931496044, \"ObjectUUID\": \"ac74cbb3-2ddb-498f-b1a8-97a3d12c17aa\", \"VersionId\": \"4\", \"Subscription\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/subscription/16949477526\", \"_refObjectUUID\": \"1c6a9e32-a526-4a3d-914d-ac2bc68184cb\", \"_refObjectName\": \"Aetna - Consumer Digital\", \"_type\": \"Subscription\"}, \"Children\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Workspace/52931496044/Children\", \"_type\": \"Project\", \"Count\": 5}, \"Description\": \"This is the workspace for the new, combined organization\", \"Name\": \"NewCo\", \"Notes\": \"\", \"Owner\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/user/52872586845\", \"_refObjectUUID\": \"255a9f84-6a96-42c3-a9f8-9db855255d52\", \"_refObjectName\": \"Matt Bergenholtz\", \"_type\": \"User\"}, \"Projects\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Workspace/52931496044/Projects\", \"_type\": \"Project\", \"Count\": 23}, \"RevisionHistory\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/revisionhistory/52931496045\", \"_refObjectUUID\": \"c18f8f4f-520a-489a-abe1-a6203eb0c2c7\", \"_type\": \"RevisionHistory\"}, \"SchemaVersion\": \"5ad33803ef05dc3e8c55b42ec6b4ead9\", \"State\": \"Open\", \"Style\": \"UserStory\", \"TypeDefinitions\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Workspace/52931496044/TypeDefinitions\", \"_type\": \"TypeDefinition\", \"Count\": 58}, \"WorkspaceConfiguration\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/workspaceconfiguration/52931496044\", \"_refObjectUUID\": \"af0b8f22-07e6-4c48-8284-366cb6e8ec52\", \"_type\": \"WorkspaceConfiguration\"}, \"Errors\": [], \"Warnings\": []}}",
       "headers": {
-        "Date": "Wed, 14 Sep 2016 01:29:45 GMT",
+        "Date": "Thu, 15 Sep 2016 21:47:57 GMT",
         "Content-Type": "application/json;  charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d9db02e4d92c7b3b76030bc76d745eeca1473816585; expires=Thu, 14-Sep-17 01:29:45 GMT; path=/; domain=.rallydev.com; HttpOnly",
+        "Set-Cookie": "__cfduid=dd87803bb09bc70b6aa84d13c8e196f841473976077; expires=Fri, 15-Sep-17 21:47:57 GMT; path=/; domain=.rallydev.com; HttpOnly",
         "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
         "X-XSS-Protection": "1; mode=block",
-        "RallyRequestID": "qs-app-031a131li1beochs3tzqy9sjtt6.qs-app-034182147",
+        "RallyRequestID": "qs-app-06fof6xs2ad26vkcrb8q8phszy.qs-app-062359748",
         "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
-        "ETag": "W/\"0fa70f445f8ea6c9b3af6334e24df9cd7\"",
+        "ETag": "W/\"014271f7b2bfde5c02a0dc72691b2b024\"",
         "Vary": "Accept-Encoding",
         "P3P": "CP=\"NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA\"",
         "Cache-Control": "private,max-age=0,must-revalidate",
         "Server": "cloudflare-nginx",
-        "CF-RAY": "2e2011d8c2095813-DFW"
+        "CF-RAY": "2e2f47b37da15843-DFW"
       },
       "status_code": 200,
       "type": "ok"

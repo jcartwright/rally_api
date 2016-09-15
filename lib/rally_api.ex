@@ -2,7 +2,7 @@ defmodule RallyApi do
   use HTTPoison.Base
   alias RallyApi.{Client, QueryResult}
 
-  def get(client, path, query \\ "", fetch \\ "") do
+  def get(client, path, query \\ "", fetch \\ "", options \\ []) do
     headers = 
       client.auth
       |> authorization_header(custom_headers)
@@ -12,6 +12,7 @@ defmodule RallyApi do
       |> url(path)
       |> append_query(query)
       |> append_fetch(fetch)
+      |> append_options(options)
       |> get!(headers)
       |> QueryResult.to_result
 
@@ -29,7 +30,7 @@ defmodule RallyApi do
     endpoint <> path
   end
 
-  def append_query(path, query) when query == "", do: path
+  def append_query(path, query) when query == "", do: path <> "?"
 
   def append_query(path, query) do
     path <> "?query=#{URI.encode(query)}"
@@ -39,6 +40,21 @@ defmodule RallyApi do
 
   def append_fetch(path, fetch) do
     path <> "&fetch=#{URI.encode(fetch)}"
+  end
+
+  def append_options(path, []), do: path
+
+  def append_options(path, options) do
+    path <> "&" <> (
+      options
+      |> rallify_options
+      |> URI.encode_query
+    )
+  end
+
+  def rallify_options(options) do
+    options
+    |> Keyword.update(:workspace, nil, &("workspace/" <> (String.split(&1, "/") |> List.last)))
   end
 
   @doc """

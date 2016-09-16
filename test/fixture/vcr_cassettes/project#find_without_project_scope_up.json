@@ -1,0 +1,38 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "X-RallyIntegrationPlatform": "Elixir 1.3.2",
+        "X-RallyIntegrationLibrary": "RallyRestToolkitForElixir",
+        "ZSESSIONID": "_lopoalp1TxyqCH3p7s1FWco2ROI90uxpii7ubJYH8"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://rally1.rallydev.com/slm/webservice/v2.0/hierarchicalrequirement?query=(FormattedID%20=%20US914)&fetch=FormattedID,Name&project=project%2F55700974877&projectScopeUp=false&workspace="
+    },
+    "response": {
+      "body": "{\"QueryResult\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"Errors\": [], \"Warnings\": [], \"TotalResultCount\": 0, \"StartIndex\": 1, \"PageSize\": 20, \"Results\": []}}",
+      "headers": {
+        "Date": "Fri, 16 Sep 2016 18:00:00 GMT",
+        "Content-Type": "application/json;  charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d1f9e06a89ddaf82eaf490fe75a21b5441474048800; expires=Sat, 16-Sep-17 18:00:00 GMT; path=/; domain=.rallydev.com; HttpOnly",
+        "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
+        "X-XSS-Protection": "1; mode=block",
+        "RallyRequestID": "qs-app-051m6lae1ws3ns9dwwtwcp9ucx5.qs-app-05522080",
+        "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+        "ETag": "W/\"028b6add6cf4389520d5bdb5163a9a21c\"",
+        "Vary": "Accept-Encoding",
+        "P3P": "CP=\"NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA\"",
+        "Cache-Control": "private,max-age=0,must-revalidate",
+        "Server": "cloudflare-nginx",
+        "CF-RAY": "2e36372a1c57116b-DFW"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

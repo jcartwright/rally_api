@@ -6,7 +6,7 @@ defmodule RallyApi.RallyQueryTest do
   
   alias RallyApi.{Client, QueryResult}
 
-  @client RallyApi.Client.new(%{zsessionid: "_lopoalp1TxyqCH3p7s1FWco2ROI90uxpii7ubJYH8"})
+  @client Client.new(%{zsessionid: Application.get_env(:rally_api, :api_key)})
   
   test "find/3" do
     use_cassette "rally_query#find", match_requests_on: [:query] do

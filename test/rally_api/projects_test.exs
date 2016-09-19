@@ -7,7 +7,7 @@ defmodule RallyApi.ProjectsTest do
 
   doctest RallyApi.Projects
 
-  @client Client.new(%{zsessionid: "_lopoalp1TxyqCH3p7s1FWco2ROI90uxpii7ubJYH8"})
+  @client Client.new(%{zsessionid: Application.get_env(:rally_api, :api_key)})
   @_ref "https://rally1.rallydev.com/slm/webservice/v2.0/project/55699003530"
 
   test "list/1" do

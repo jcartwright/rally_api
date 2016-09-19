@@ -9,7 +9,12 @@ defmodule RallyApi.ProjectsTest do
 
   @client Client.new(%{zsessionid: Application.get_env(:rally_api, :api_key)})
   @_ref "https://rally1.rallydev.com/slm/webservice/v2.0/project/55699003530"
-
+  
+  setup do
+    ExVCR.Config.filter_request_headers("ZSESSIONID")
+    :ok
+  end
+  
   test "list/1" do
     use_cassette "projects#list" do
       {:ok, projects} = list(@client)

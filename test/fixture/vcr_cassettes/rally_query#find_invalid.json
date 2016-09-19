@@ -5,7 +5,7 @@
       "headers": {
         "X-RallyIntegrationPlatform": "Elixir 1.3.2",
         "X-RallyIntegrationLibrary": "RallyRestToolkitForElixir",
-        "ZSESSIONID": "_lopoalp1TxyqCH3p7s1FWco2ROI90uxpii7ubJYH8"
+        "ZSESSIONID": "***"
       },
       "method": "get",
       "options": [],
@@ -15,21 +15,21 @@
     "response": {
       "body": "{\"QueryResult\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"Errors\": [\"Could not parse: Could not find attribute \\\"InvalidField\\\" on type HierarchicalRequirement in the query segment \\\"InvalidField\\\"\"], \"Warnings\": [], \"TotalResultCount\": 0, \"StartIndex\": 0, \"PageSize\": 0, \"Results\": []}}",
       "headers": {
-        "Date": "Mon, 12 Sep 2016 21:22:40 GMT",
+        "Date": "Mon, 19 Sep 2016 20:23:09 GMT",
         "Content-Type": "application/json;  charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=df62364ae38cb5d01d0e33dda46279bea1473715360; expires=Tue, 12-Sep-17 21:22:40 GMT; path=/; domain=.rallydev.com; HttpOnly",
+        "Set-Cookie": "__cfduid=d98c91ad80c95782ee2ed848c1362e7e61474316589; expires=Tue, 19-Sep-17 20:23:09 GMT; path=/; domain=.rallydev.com; HttpOnly",
         "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
         "X-XSS-Protection": "1; mode=block",
-        "RallyRequestID": "qs-app-12nqrbi5q7vf5mkxyhvo2bo1u1.qs-app-121915175",
+        "RallyRequestID": "qd-app-101exl9agbxepggqsp3xzi9m86f.qd-app-10584522",
         "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
         "ETag": "W/\"09439c351abe62e8eb1809c98d11be0e5\"",
         "Vary": "Accept-Encoding",
         "P3P": "CP=\"NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA\"",
         "Cache-Control": "private,max-age=0,must-revalidate",
         "Server": "cloudflare-nginx",
-        "CF-RAY": "2e166a8949f30956-DFW"
+        "CF-RAY": "2e4fc0fb7d351f9a-DFW"
       },
       "status_code": 200,
       "type": "ok"

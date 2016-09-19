@@ -9,7 +9,12 @@ defmodule RallyApi.WorkspacesTest do
 
   @client Client.new(%{zsessionid: Application.get_env(:rally_api, :api_key)})
   @_ref "https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044"
-
+  
+  setup do
+    ExVCR.Config.filter_request_headers("ZSESSIONID")
+    :ok
+  end
+  
   test "list/1" do
     use_cassette "workspaces#list" do
       {:ok, %QueryResult{results: workspaces}} = list(@client)

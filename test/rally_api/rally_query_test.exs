@@ -7,6 +7,11 @@ defmodule RallyApi.RallyQueryTest do
   alias RallyApi.{Client, QueryResult}
 
   @client Client.new(%{zsessionid: Application.get_env(:rally_api, :api_key)})
+    
+  setup do
+    ExVCR.Config.filter_request_headers("ZSESSIONID")
+    :ok
+  end
   
   test "find/3" do
     use_cassette "rally_query#find", match_requests_on: [:query] do

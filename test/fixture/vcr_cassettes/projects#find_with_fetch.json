@@ -5,7 +5,7 @@
       "headers": {
         "X-RallyIntegrationPlatform": "Elixir 1.3.2",
         "X-RallyIntegrationLibrary": "RallyRestToolkitForElixir",
-        "ZSESSIONID": "_lopoalp1TxyqCH3p7s1FWco2ROI90uxpii7ubJYH8"
+        "ZSESSIONID": "***"
       },
       "method": "get",
       "options": [],
@@ -15,21 +15,21 @@
     "response": {
       "body": "{\"QueryResult\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"Errors\": [], \"Warnings\": [], \"TotalResultCount\": 1, \"StartIndex\": 1, \"PageSize\": 20, \"Results\": [{\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/project/55699003530\", \"_refObjectUUID\": \"f652ec2c-5685-4f49-b7ec-ab5a056e23d1\", \"_objectVersion\": \"3\", \"_refObjectName\": \"Training Sandbox\", \"Description\": \"Location for experimentation and training of processes/practices related to the CAAC/Rally ALM tool, as well as NewCo work hierarchies, alignment, etc.\", \"Name\": \"Training Sandbox\", \"_type\": \"Project\"}]}}",
       "headers": {
-        "Date": "Fri, 16 Sep 2016 17:22:42 GMT",
+        "Date": "Mon, 19 Sep 2016 20:23:10 GMT",
         "Content-Type": "application/json;  charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d3e9d1e4af92b938509172b07415882001474046562; expires=Sat, 16-Sep-17 17:22:42 GMT; path=/; domain=.rallydev.com; HttpOnly",
+        "Set-Cookie": "__cfduid=d19ffcd06e233144161ce191b69443cd21474316590; expires=Tue, 19-Sep-17 20:23:10 GMT; path=/; domain=.rallydev.com; HttpOnly",
         "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
         "X-XSS-Protection": "1; mode=block",
-        "RallyRequestID": "qs-app-12twhs3rn1g1sqt0l1v0rvla6u.qs-app-1215739471",
+        "RallyRequestID": "qd-app-075plycrwby9twte2hgz4q5dfn.qd-app-07641995",
         "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
         "ETag": "W/\"0e1dcb8a7a3fed1ea278e114e84c22c97\"",
         "Vary": "Accept-Encoding",
         "P3P": "CP=\"NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA\"",
         "Cache-Control": "private,max-age=0,must-revalidate",
         "Server": "cloudflare-nginx",
-        "CF-RAY": "2e360088ca6c58a3-DFW"
+        "CF-RAY": "2e4fc1029ff51f9a-DFW"
       },
       "status_code": 200,
       "type": "ok"

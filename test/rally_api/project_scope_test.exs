@@ -10,6 +10,11 @@ defmodule RallyApi.ProjectScopeTest do
   @parent_ref "https://rally1.rallydev.com/slm/webservice/v2.0/project/55699003530"
   # Test Project 1
   @child_ref "https://rally1.rallydev.com/slm/webservice/v2.0/project/55700974877"
+
+  setup do
+    ExVCR.Config.filter_request_headers("ZSESSIONID")
+    :ok
+  end
   
   # Training Sandbox
   # |- Test Project 1

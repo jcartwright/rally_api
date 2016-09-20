@@ -43,4 +43,11 @@ defmodule RallyApiTest do
 
     assert custom_headers(custom) == expected
   end
+
+  test "normalize_space" do
+    original = "Name asc, FormattedID desc"
+    expected = "Name asc,FormattedID desc"
+
+    assert normalize_space(original) == expected
+  end
 end

@@ -46,7 +46,7 @@ defmodule RallyApi do
 
   def append_options(path, options) do
     path <> "&" <> (
-      options
+      compact_options(options)
       |> rallify_options
       |> URI.encode_query
     )
@@ -56,7 +56,25 @@ defmodule RallyApi do
     options
     |> Keyword.update(:workspace, nil, &("workspace/" <> (String.split(&1, "/") |> List.last)))
     |> Keyword.update(:project, nil, &("project/" <> (String.split(&1, "/") |> List.last)))
+    |> Keyword.update(:order, nil, &(normalize_space(&1)))
     # TODO: |> camelize_options
+    |> compact_options
+  end
+
+  def compact_options([]), do: []
+
+  def compact_options(options) when is_list(options) do
+    options
+    |> Enum.filter(fn {k,v} -> v != nil end)
+  end
+
+  def normalize_space(text) when text == "", do: text
+
+  def normalize_space(text) when is_binary(text) do
+    text
+    |> String.split(",")
+    |> Enum.map(&(String.trim(&1)))
+    |> Enum.join(",")
   end
 
   # Rally will ignore these options unless they are camelCase, so I'm punting on this
@@ -104,10 +122,10 @@ defmodule RallyApi do
   ## Examples
 
     iex> RallyApi.custom_headers
-    [{"X-RallyIntegrationPlatform", "Elixir 1.3.2"}, {"X-RallyIntegrationLibrary", "RallyRestToolkitForElixir"}]
+    [{"X-RallyIntegrationPlatform", "Elixir 1.3.3"}, {"X-RallyIntegrationLibrary", "RallyRestToolkitForElixir"}]
 
     iex> RallyApi.custom_headers([{"X-RallyIntegrationName", "MyApp"}])
-    [{"X-RallyIntegrationName", "MyApp"}, {"X-RallyIntegrationPlatform", "Elixir 1.3.2"}, {"X-RallyIntegrationLibrary", "RallyRestToolkitForElixir"}]
+    [{"X-RallyIntegrationName", "MyApp"}, {"X-RallyIntegrationPlatform", "Elixir 1.3.3"}, {"X-RallyIntegrationLibrary", "RallyRestToolkitForElixir"}]
 
   ## More info
   https://rally1.rallydev.com/slm/doc/webservice/clientinfo.jsp

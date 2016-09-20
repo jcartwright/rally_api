@@ -77,6 +77,38 @@ defmodule RallyApi.RallyQueryTest do
     end
   end
 
+  test "find/5 with valid order option" do
+    use_cassette "rally_query#find_with_order" do
+      type = :story
+      query = "(Owner.LastName = Cartwright)"
+      fetch = "FormattedID,Name"
+      order = "FormattedID desc"
+      pagesize = 5
+
+      {:ok, %QueryResult{results: stories}} = find(@client, type, query, fetch, order: order, pagesize: pagesize)
+      assert Enum.map(stories, &(&1["FormattedID"])) == ~w(US1744 US1742 US1565 US1186 US1090)
+    end
+  end
+
+  test "find/5 with valid multi-field order option" do
+    use_cassette "rally_query#find_with_complex_order" do
+      type = :story
+      query = "((Owner.LastName = Cartwright) OR (Owner.LastName = Malgieri))"
+      fetch = "Owner,FormattedID"
+      order = "Owner.LastName desc, FormattedID desc"
+      pagesize = 5
+
+      {:ok, %QueryResult{results: stories}} = find(@client, type, query, fetch, order: order, pagesize: pagesize)
+      assert Enum.map(stories, &({&1["Owner"]["_refObjectName"], &1["FormattedID"]})) == [
+        {"Seth Malgieri", "US530"},
+        {"Seth Malgieri", "US529"},
+        {"Jason Cartwright", "US1744"},
+        {"Jason Cartwright", "US1742"},
+        {"Jason Cartwright", "US1565"},
+      ]
+    end
+  end
+
   test "path_for/1 with queryable types" do
     Enum.each(queryable_types, fn(query_type) ->
       assert {:ok, _path} = path_for(elem(query_type, 0))

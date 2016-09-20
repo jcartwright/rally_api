@@ -1,0 +1,40 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "X-RallyIntegrationPlatform": "Elixir 1.3.3",
+        "X-RallyIntegrationLibrary": "RallyRestToolkitForElixir",
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://rally1.rallydev.com/slm/webservice/v2.0/security/authorize?"
+    },
+    "response": {
+      "body": "<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\"/>\n<title>Error 401 The username or password you entered is incorrect.</title>\n</head>\n<body><h2>HTTP ERROR 401</h2>\n<p>Problem accessing /slm/webservice/v2.0/security/authorize. Reason:\n<pre>    The username or password you entered is incorrect.</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n\n</body>\n</html>\n",
+      "headers": {
+        "Date": "Tue, 20 Sep 2016 21:35:20 GMT",
+        "Content-Type": "text/html;charset=ISO-8859-1",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d3747fdf473f8f584298efbaa4c5c517b1474407320; expires=Wed, 20-Sep-17 21:35:20 GMT; path=/; domain=.rallydev.com; HttpOnly",
+        "Pragma": "no-cache",
+        "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Frame-Options": "DENY",
+        "X-Content-Type-Options": "nosniff",
+        "WWW-Authenticate": "Basic realm=\"Rally ALM\"",
+        "Cache-Control": "private,max-age=0,must-revalidate",
+        "Expires": "Tue, 20 Sep 2016 21:35:20 GMT",
+        "Vary": "Accept-Encoding",
+        "P3P": "CP=\"NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA\"",
+        "Server": "cloudflare-nginx",
+        "CF-RAY": "2e586816fecd5903-DFW"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  }
+]

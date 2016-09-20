@@ -21,8 +21,20 @@ defmodule RallyApi do
         if Enum.empty?(result.errors),
         do:   {:ok, result},
         else: {:error, Enum.at(result.errors, 0)}
+      %HTTPoison.Response{status_code: 401} ->
+        {:error, "Error 401 The username or password you entered is incorrect"}
       %{} = result ->
         {:ok, result}
+    end
+  end
+
+  def get_security_token(client), do: get(client, "security/authorize")
+
+  def get_security_token!(client) do
+    case get_security_token(client) do
+      {:ok, response} ->
+        response["OperationResult"]["SecurityToken"] || ""
+      {:error, reason} -> raise reason
     end
   end
 

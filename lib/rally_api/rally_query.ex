@@ -12,6 +12,8 @@ defmodule RallyApi.RallyQuery do
 
   def find(client, type, query), do: find(client, type, query, "")
 
+  def find(client, type), do: find(client, type, "")
+
   # TODO: Maybe there is a better way to define this queryable type to path data?
   @queryable_types [
     artifact: "artifact", artifactnotification: "artifactnotification", attachment: "attachment",

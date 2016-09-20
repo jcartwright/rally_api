@@ -1,6 +1,5 @@
 defmodule RallyApi.RallyQuery do
   import RallyApi
-  alias RallyApi.{Client, QueryResult}
 
   def find(client, type, query, fetch, options \\ []) do
     case path_for(type) do

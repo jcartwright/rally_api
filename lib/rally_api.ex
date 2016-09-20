@@ -57,7 +57,6 @@ defmodule RallyApi do
     |> Keyword.update(:workspace, nil, &("workspace/" <> (String.split(&1, "/") |> List.last)))
     |> Keyword.update(:project, nil, &("project/" <> (String.split(&1, "/") |> List.last)))
     |> Keyword.update(:order, nil, &(normalize_space(&1)))
-    # TODO: |> camelize_options
     |> compact_options
   end
 
@@ -65,7 +64,7 @@ defmodule RallyApi do
 
   def compact_options(options) when is_list(options) do
     options
-    |> Enum.filter(fn {k,v} -> v != nil end)
+    |> Enum.filter(fn {_,v} -> v != nil end)
   end
 
   def normalize_space(text) when text == "", do: text
@@ -76,15 +75,6 @@ defmodule RallyApi do
     |> Enum.map(&(String.trim(&1)))
     |> Enum.join(",")
   end
-
-  # Rally will ignore these options unless they are camelCase, so I'm punting on this
-  # because it's just as easy to pass the options as :projectScopeUp and :projectScopeDown
-  # def camelize_options(options) do
-    # Keyword.take(options, [:project_scope_up, :project_scope_down])
-    # |> Enum.map(fn {k, v} -> { Atom.to_string(k) |> Macro.camelize |> String.to_atom, v } end)
-    # |> Keyword.merge(options)
-    # |> Keyword.drop([:project_scope_up, :project_scope_down])
-  # end
 
   @doc """
   There are two ways to authenticate through the Rally REST API v2:

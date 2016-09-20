@@ -40,6 +40,7 @@ defmodule RallyApi.ProjectsTest do
       [%{"Name" => name, "Description" => description}] = projects
 
       assert name == "Training Sandbox"
+      assert description =~ ~r/^Location for experimentation/
     end
   end
 

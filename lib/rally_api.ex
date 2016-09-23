@@ -2,6 +2,17 @@ defmodule RallyApi do
   use HTTPoison.Base
   alias RallyApi.{Client, QueryResult}
 
+  def post(client, path, body \\ "", options \\ []) do
+    headers = 
+      client.auth
+      |> authorization_header(custom_headers)
+
+    result =
+      client
+      |> url(path)
+      |> HTTPoison.post(body, headers)
+  end
+
   def get(client, path, query \\ "", fetch \\ "", options \\ []) do
     headers = 
       client.auth
@@ -33,7 +44,7 @@ defmodule RallyApi do
   def get_security_token!(client) do
     case get_security_token(client) do
       {:ok, response} ->
-        response["OperationResult"]["SecurityToken"] || ""
+        response["OperationResult"]["SecurityToken"]
       {:error, reason} -> raise reason
     end
   end

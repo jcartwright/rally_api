@@ -17,7 +17,9 @@ defmodule RallyApi.RallyUpdateTest do
     %{"Defect" =>
       %{"Name" => "Simple Defect for Update",
         "Priority" => "Normal",
-        "c_CreationTeamName" => "Creation Team not assigned yet"}
+        "c_CreationTeamName" => "Creation Team not assigned yet",
+        "Project" => %{"_ref" => "https://rally1.rallydev.com/slm/webservice/v2.0/project/55700974877"}
+      }
     }
   end
 

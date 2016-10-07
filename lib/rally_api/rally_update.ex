@@ -1,5 +1,7 @@
 defmodule RallyApi.RallyUpdate do
   import RallyApi
+  import RallyApi.Rallyties
+
   alias RallyApi.OperationResult
 
   def update(client, type, object_id, attributes, options \\ []) do
@@ -27,14 +29,4 @@ defmodule RallyApi.RallyUpdate do
     {:ok, "#{type}/#{object_id}"}
   end
   
-  def wrap_attributes_with_rally_type(type, %{} = attrs) do
-    root = type
-      |> Atom.to_string
-      |> Macro.camelize
-
-    case attrs do
-      %{^root => _} -> attrs
-      _ -> %{root => attrs}
-    end
-  end
 end

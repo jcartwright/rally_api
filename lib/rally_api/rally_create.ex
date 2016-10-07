@@ -1,5 +1,7 @@
 defmodule RallyApi.RallyCreate do
   import RallyApi
+  import RallyApi.Rallyties
+
   alias RallyApi.CreateResult
 
   def create(client, type, attributes, options \\ []) do
@@ -51,14 +53,4 @@ defmodule RallyApi.RallyCreate do
     end
   end
 
-  def wrap_attributes_with_rally_type(type, %{} = attrs) do
-    root = type
-      |> Atom.to_string
-      |> Macro.camelize
-
-    case attrs do
-      %{^root => _} -> attrs
-      _ -> %{root => attrs}
-    end
-  end
 end

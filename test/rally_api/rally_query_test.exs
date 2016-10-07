@@ -2,6 +2,7 @@ defmodule RallyApi.RallyQueryTest do
   use ExUnit.Case, async: false
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   
+  import RallyApi.Rallyties, only: [queryable_types: 0]
   import RallyApi.RallyQuery
   
   alias RallyApi.{Client, QueryResult}

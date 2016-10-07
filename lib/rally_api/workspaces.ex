@@ -1,8 +1,9 @@
 defmodule RallyApi.Workspaces do
   import RallyApi
+  import RallyApi.Rallyties, only: [queryable_types: 0]
   alias RallyApi.RallyQuery
 
-  @path RallyQuery.queryable_types[:workspace]
+  @path queryable_types[:workspace]
 
   @doc """
   List all workspaces for a user

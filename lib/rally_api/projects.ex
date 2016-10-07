@@ -1,8 +1,9 @@
 defmodule RallyApi.Projects do
   import RallyApi
+  import RallyApi.Rallyties, only: [queryable_types: 0]
   alias RallyApi.RallyQuery
 
-  @path RallyQuery.queryable_types[:project]
+  @path queryable_types[:project]
 
   @doc """
   List all projects _for a workspace_

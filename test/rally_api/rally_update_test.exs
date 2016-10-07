@@ -13,12 +13,17 @@ defmodule RallyApi.RallyUpdateTest do
     :ok
   end
 
+  def simple_defect_attributes do
+    %{"Defect" =>
+      %{"Name" => "Simple Defect for Update",
+        "Priority" => "Normal",
+        "c_CreationTeamName" => "Creation Team not assigned yet"}
+    }
+  end
+
   test "update simple defect" do
     use_cassette "rally_update#simple_defect" do
-      attrs = %{"Defect" =>
-        %{"Name" => "Simple Defect for Update",
-          "Priority" => "Normal",
-          "c_CreationTeamName" => "Creation Team not assigned yet"}}
+      attrs = simple_defect_attributes
       {:ok, %CreateResult{object: defect}} = create(@client, :defect, attrs)
 
       object_id = defect["ObjectID"]
@@ -32,6 +37,19 @@ defmodule RallyApi.RallyUpdateTest do
       assert defect["Priority"] == "High Attention"
       assert defect["c_Platform"] == "Web"
       assert defect["ScheduleState"] == "In-Progress"
+    end
+  end
+
+  test "update fails validation" do
+    use_cassette "rally_update#fails_validation" do
+      attrs = simple_defect_attributes
+      {:ok, %CreateResult{object: defect}} = create(@client, :defect, attrs)
+
+      object_id = defect["ObjectID"]
+      attrs = %{"Defect" => %{"ScheduleState" => "In Progress"}} # valid value is "In-Progess"
+      {:error, reason} = update(@client, :defect, object_id, attrs)
+
+      assert reason =~ ~r/^Could not convert/
     end
   end
 end

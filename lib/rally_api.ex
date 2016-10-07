@@ -13,6 +13,17 @@ defmodule RallyApi do
       |> HTTPoison.post(body, headers)
   end
 
+  def put(client, path, body \\ "", options \\ []) do
+    headers = 
+      client.auth
+      |> authorization_header(custom_headers)
+
+    result =
+      client
+      |> url(path)
+      |> HTTPoison.put(body, headers)
+  end
+
   def get(client, path, query \\ "", fetch \\ "", options \\ []) do
     headers = 
       client.auth

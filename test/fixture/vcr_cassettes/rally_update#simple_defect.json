@@ -1,0 +1,72 @@
+[
+  {
+    "request": {
+      "body": "{\"Defect\":{\"c_CreationTeamName\":\"Creation Team not assigned yet\",\"Priority\":\"Normal\",\"Name\":\"Simple Defect for Update\"}}",
+      "headers": {
+        "X-RallyIntegrationPlatform": "Elixir 1.3.3",
+        "X-RallyIntegrationLibrary": "RallyRestToolkitForElixir",
+        "ZSESSIONID": "***"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://rally1.rallydev.com/slm/webservice/v2.0/defect/create"
+    },
+    "response": {
+      "body": "{\"CreateResult\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"Errors\": [], \"Warnings\": [], \"Object\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/defect/67729679224\", \"_refObjectUUID\": \"9307ebbd-77b7-431a-90ed-ee1ea8f5df07\", \"_objectVersion\": \"1\", \"_refObjectName\": \"Simple Defect for Update\", \"CreationDate\": \"2016-10-07T19:11:01.686Z\", \"_CreatedAt\": \"just now\", \"ObjectID\": 67729679224, \"ObjectUUID\": \"9307ebbd-77b7-431a-90ed-ee1ea8f5df07\", \"VersionId\": \"1\", \"Subscription\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/subscription/16949477526\", \"_refObjectUUID\": \"1c6a9e32-a526-4a3d-914d-ac2bc68184cb\", \"_refObjectName\": \"Aetna - Consumer Digital\", \"_type\": \"Subscription\"}, \"Workspace\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044\", \"_refObjectUUID\": \"ac74cbb3-2ddb-498f-b1a8-97a3d12c17aa\", \"_refObjectName\": \"NewCo\", \"_type\": \"Workspace\"}, \"Changesets\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/Changesets\", \"_type\": \"Changeset\", \"Count\": 0}, \"Description\": \"\", \"Discussion\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/Discussion\", \"_type\": \"ConversationPost\", \"Count\": 0}, \"DisplayColor\": \"#f9a814\", \"Expedite\": false, \"FormattedID\": \"DE152\", \"LastUpdateDate\": \"2016-10-07T19:11:01.745Z\", \"LatestDiscussionAgeInMinutes\": null, \"Milestones\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/Milestones\", \"_type\": \"Milestone\", \"_tagsNameArray\": [], \"Count\": 0}, \"Name\": \"Simple Defect for Update\", \"Notes\": \"\", \"Owner\": null, \"Project\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/project/52932357254\", \"_refObjectUUID\": \"adeae6ef-0a6a-4b89-bc53-559c99de1667\", \"_refObjectName\": \"NewCo Inc\", \"_type\": \"Project\"}, \"Ready\": false, \"RevisionHistory\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/revisionhistory/67729679228\", \"_refObjectUUID\": \"342586b8-5e1e-485f-a778-4204c45612c7\", \"_type\": \"RevisionHistory\"}, \"Tags\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/Tags\", \"_type\": \"Tag\", \"_tagsNameArray\": [], \"Count\": 0}, \"LastBuild\": null, \"LastRun\": null, \"PassingTestCaseCount\": 0, \"ScheduleState\": \"Defined\", \"ScheduleStatePrefix\": \"D\", \"TestCaseCount\": 0, \"AcceptedDate\": null, \"AffectsDoc\": false, \"Attachments\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/Attachments\", \"_type\": \"Attachment\", \"Count\": 0}, \"Blocked\": false, \"BlockedReason\": null, \"Blocker\": null, \"ClosedDate\": null, \"DefectSuites\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/DefectSuites\", \"_type\": \"DefectSuite\", \"Count\": 0}, \"DragAndDropRank\": \"O~~zga[gO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\", \"Duplicates\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/Duplicates\", \"_type\": \"Defect\", \"Count\": 0}, \"Environment\": \"None\", \"FixedInBuild\": null, \"FoundInBuild\": null, \"InProgressDate\": null, \"Iteration\": null, \"OpenedDate\": null, \"Package\": null, \"PlanEstimate\": null, \"Priority\": \"Normal\", \"Recycled\": false, \"Release\": null, \"ReleaseNote\": false, \"Requirement\": null, \"Resolution\": \"None\", \"SalesforceCaseID\": null, \"SalesforceCaseNumber\": null, \"Severity\": \"None\", \"State\": \"Submitted\", \"SubmittedBy\": null, \"TargetBuild\": null, \"TargetDate\": null, \"TaskActualTotal\": 0.0, \"TaskEstimateTotal\": 0.0, \"TaskRemainingTotal\": 0.0, \"TaskStatus\": \"NONE\", \"Tasks\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/Tasks\", \"_type\": \"Task\", \"Count\": 0}, \"TestCase\": null, \"TestCaseResult\": null, \"TestCaseStatus\": \"NONE\", \"TestCases\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/TestCases\", \"_type\": \"TestCase\", \"Count\": 0}, \"VerifiedInBuild\": null, \"c_CreationTeamName\": \"Creation Team not assigned yet\", \"c_DevOps\": null, \"c_Platform\": null, \"c_Workstream\": null, \"_type\": \"Defect\"}}}",
+      "headers": {
+        "Date": "Fri, 07 Oct 2016 19:11:01 GMT",
+        "Content-Type": "application/json;  charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d1cebda329ba885cf27094c1e086244911475867461; expires=Sat, 07-Oct-17 19:11:01 GMT; path=/; domain=.rallydev.com; HttpOnly",
+        "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
+        "X-XSS-Protection": "1; mode=block",
+        "RallyRequestID": "qd-app-0711cp86ye76asw1ot1it0s1k1ch.qd-app-0753160744",
+        "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+        "Vary": "Accept-Encoding",
+        "P3P": "CP=\"NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA\"",
+        "Cache-Control": "private,max-age=0,must-revalidate",
+        "Server": "cloudflare-nginx",
+        "CF-RAY": "2ee3a8121c0f0950-DFW"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{\"Defect\":{\"c_Platform\":\"Web\",\"ScheduleState\":\"In-Progress\",\"Priority\":\"High Attention\"}}",
+      "headers": {
+        "X-RallyIntegrationPlatform": "Elixir 1.3.3",
+        "X-RallyIntegrationLibrary": "RallyRestToolkitForElixir",
+        "ZSESSIONID": "***"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://rally1.rallydev.com/slm/webservice/v2.0/defect/67729679224"
+    },
+    "response": {
+      "body": "{\"OperationResult\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"Errors\": [], \"Warnings\": [], \"Object\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/defect/67729679224\", \"_refObjectUUID\": \"9307ebbd-77b7-431a-90ed-ee1ea8f5df07\", \"_objectVersion\": \"2\", \"_refObjectName\": \"Simple Defect for Update\", \"CreationDate\": \"2016-10-07T19:11:01.686Z\", \"_CreatedAt\": \"just now\", \"ObjectID\": 67729679224, \"ObjectUUID\": \"9307ebbd-77b7-431a-90ed-ee1ea8f5df07\", \"VersionId\": \"2\", \"Subscription\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/subscription/16949477526\", \"_refObjectUUID\": \"1c6a9e32-a526-4a3d-914d-ac2bc68184cb\", \"_refObjectName\": \"Aetna - Consumer Digital\", \"_type\": \"Subscription\"}, \"Workspace\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044\", \"_refObjectUUID\": \"ac74cbb3-2ddb-498f-b1a8-97a3d12c17aa\", \"_refObjectName\": \"NewCo\", \"_type\": \"Workspace\"}, \"Changesets\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/Changesets\", \"_type\": \"Changeset\", \"Count\": 0}, \"Description\": \"\", \"Discussion\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/Discussion\", \"_type\": \"ConversationPost\", \"Count\": 0}, \"DisplayColor\": \"#f9a814\", \"Expedite\": false, \"FormattedID\": \"DE152\", \"LastUpdateDate\": \"2016-10-07T19:11:02.055Z\", \"LatestDiscussionAgeInMinutes\": null, \"Milestones\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/Milestones\", \"_type\": \"Milestone\", \"_tagsNameArray\": [], \"Count\": 0}, \"Name\": \"Simple Defect for Update\", \"Notes\": \"\", \"Owner\": null, \"Project\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/project/52932357254\", \"_refObjectUUID\": \"adeae6ef-0a6a-4b89-bc53-559c99de1667\", \"_refObjectName\": \"NewCo Inc\", \"_type\": \"Project\"}, \"Ready\": false, \"RevisionHistory\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/revisionhistory/67729679228\", \"_refObjectUUID\": \"342586b8-5e1e-485f-a778-4204c45612c7\", \"_type\": \"RevisionHistory\"}, \"Tags\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/Tags\", \"_type\": \"Tag\", \"_tagsNameArray\": [], \"Count\": 0}, \"LastBuild\": null, \"LastRun\": null, \"PassingTestCaseCount\": 0, \"ScheduleState\": \"In-Progress\", \"ScheduleStatePrefix\": \"P\", \"TestCaseCount\": 0, \"AcceptedDate\": null, \"AffectsDoc\": false, \"Attachments\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/Attachments\", \"_type\": \"Attachment\", \"Count\": 0}, \"Blocked\": false, \"BlockedReason\": null, \"Blocker\": null, \"ClosedDate\": null, \"DefectSuites\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/DefectSuites\", \"_type\": \"DefectSuite\", \"Count\": 0}, \"DragAndDropRank\": \"O~~zga[gO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\", \"Duplicates\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/Duplicates\", \"_type\": \"Defect\", \"Count\": 0}, \"Environment\": \"None\", \"FixedInBuild\": null, \"FoundInBuild\": null, \"InProgressDate\": \"2016-10-07T19:11:02.017Z\", \"Iteration\": null, \"OpenedDate\": null, \"Package\": null, \"PlanEstimate\": null, \"Priority\": \"High Attention\", \"Recycled\": false, \"Release\": null, \"ReleaseNote\": false, \"Requirement\": null, \"Resolution\": \"None\", \"SalesforceCaseID\": null, \"SalesforceCaseNumber\": null, \"Severity\": \"None\", \"State\": \"Submitted\", \"SubmittedBy\": null, \"TargetBuild\": null, \"TargetDate\": null, \"TaskActualTotal\": 0.0, \"TaskEstimateTotal\": 0.0, \"TaskRemainingTotal\": 0.0, \"TaskStatus\": \"NONE\", \"Tasks\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/Tasks\", \"_type\": \"Task\", \"Count\": 0}, \"TestCase\": null, \"TestCaseResult\": null, \"TestCaseStatus\": \"NONE\", \"TestCases\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Defect/67729679224/TestCases\", \"_type\": \"TestCase\", \"Count\": 0}, \"VerifiedInBuild\": null, \"c_CreationTeamName\": \"Creation Team not assigned yet\", \"c_DevOps\": null, \"c_Platform\": \"Web\", \"c_Workstream\": null, \"_type\": \"Defect\"}}}",
+      "headers": {
+        "Date": "Fri, 07 Oct 2016 19:11:02 GMT",
+        "Content-Type": "application/json;  charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d1cebda329ba885cf27094c1e086244911475867461; expires=Sat, 07-Oct-17 19:11:01 GMT; path=/; domain=.rallydev.com; HttpOnly",
+        "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
+        "X-XSS-Protection": "1; mode=block",
+        "RallyRequestID": "qd-app-09kyuah3rs0zfd1nfvez0xk0k8i.qd-app-09957720",
+        "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+        "Vary": "Accept-Encoding",
+        "P3P": "CP=\"NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA\"",
+        "Cache-Control": "private,max-age=0,must-revalidate",
+        "Server": "cloudflare-nginx",
+        "CF-RAY": "2ee3a814fd1f0950-DFW"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

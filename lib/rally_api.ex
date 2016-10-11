@@ -50,6 +50,18 @@ defmodule RallyApi do
     end
   end
 
+  def delete(client, path) do
+    headers = 
+      client.auth
+      |> authorization_header(custom_headers)
+
+    result =
+      client
+      |> url(path)
+      |> HTTPoison.delete(headers)
+  end
+
+
   def get_security_token(client), do: get(client, "security/authorize")
 
   def get_security_token!(client) do

@@ -2,8 +2,7 @@ defmodule RallyApi.RallyUpdateTest do
   use ExUnit.Case, async: false
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
-  import RallyApi.RallyCreate
-  import RallyApi.RallyUpdate
+  import RallyApi.{TestHelper, RallyCreate, RallyUpdate}
   alias RallyApi.{Client, CreateResult, OperationResult}
 
   @client Client.new(%{zsessionid: Application.get_env(:rally_api, :api_key)})
@@ -11,16 +10,6 @@ defmodule RallyApi.RallyUpdateTest do
   setup do
     ExVCR.Config.filter_request_headers("ZSESSIONID")
     :ok
-  end
-
-  def simple_defect_attributes do
-    %{"Defect" =>
-      %{"Name" => "Simple Defect for Update",
-        "Priority" => "Normal",
-        "c_CreationTeamName" => "Creation Team not assigned yet",
-        "Project" => %{"_ref" => "https://rally1.rallydev.com/slm/webservice/v2.0/project/55700974877"}
-      }
-    }
   end
 
   test "update simple defect" do

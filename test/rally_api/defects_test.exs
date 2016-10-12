@@ -8,7 +8,7 @@ defmodule RallyApi.DefectsTest do
   doctest RallyApi.Defects
 
   @client Client.new(%{zsessionid: Application.get_env(:rally_api, :api_key)})
-  @_ref ""
+  @_ref "https://rally1.rallydev.com/slm/webservice/v2.0/defect/54626752843"
   @project "https://rally1.rallydev.com/slm/webservice/v2.0/project/55700974877"
 
   setup do
@@ -32,6 +32,21 @@ defmodule RallyApi.DefectsTest do
       p_id = "https://rally1.rallydev.com/slm/webservice/v2.0/project/55700976506"
       {:ok, %QueryResult{results: defects}} = list(@client, project: p_id)
       assert Enum.empty?(defects)
+    end
+  end
+
+  test "find/3 query on priority" do
+    use_cassette "defects#find_with_priority" do
+      {:ok, %QueryResult{} = result} = find(@client, "(Priority = \"High Attention\")", "Priority")
+      assert result.total_result_count == 40
+      assert result.results |> Enum.reject(&(&1["Priority"] == "High Attention")) |> Enum.empty?
+    end
+  end
+
+  test "read/2" do
+    use_cassette "defects#read" do
+      {:ok, %{"Defect" => %{"_ref" => ref}}} = read(@client, @_ref)
+      assert ref == @_ref
     end
   end
 end

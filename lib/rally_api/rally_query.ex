@@ -15,6 +15,19 @@ defmodule RallyApi.RallyQuery do
 
   def find(client, type), do: find(client, type, "")
 
+  def read(client, type, ref) do
+    ref_id = ref
+      |> String.split("/")
+      |> List.last
+
+    case path_for(type) do
+      {:ok, path} ->
+        get client, "#{path}/#{ref_id}"
+      {:error, reason} ->
+        {:error, reason}
+    end
+  end
+
   def path_for(type) when is_binary(type), do: path_for(String.to_atom(type))
 
   def path_for(type) when is_atom(type) do

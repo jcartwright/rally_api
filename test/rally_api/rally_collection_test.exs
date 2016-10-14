@@ -33,7 +33,6 @@ defmodule RallyApi.RallyCollectionTest do
     end
   end
 
-  @tag :wip
   test "add tag to a defect by ref" do
     use_cassette "rally_collection#add_tag_to_defect_by_ref", match_requests_on: [:query] do
       {:ok, %CreateResult{object: tag}} = create(@client, :tag, %{"Name": "rally_api"})

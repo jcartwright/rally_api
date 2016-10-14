@@ -73,7 +73,11 @@ defmodule RallyApi do
   end
 
   def url(_client = %Client{endpoint: endpoint}, path) do
-    endpoint <> path
+    cond do
+      path =~ ~r/^#{endpoint}/ -> path
+      true ->
+        endpoint <> path
+    end
   end
 
   def append_query(path, query) when query == "", do: path <> "?"

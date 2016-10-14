@@ -43,6 +43,46 @@ defmodule RallyApi.Rallyties do
   ]
   def queryable_types, do: @queryable_types
 
+  @collectable_types [
+    allowed_query_operator: "AllowedQueryOperators", allowed_query_operators: "AllowedQueryOperators",
+    allowed_value: "AllowedValues", allowed_values: "AllowedValues",
+    artifact: "Artifacts", artifacts: "Artifacts",
+    attachment: "Attachments", attachments: "Attachments",
+    attribute: "Attributes", attributes: "Attributes",
+    build: "Builds", builds: "Builds",
+    build_definition: "BuildDefinitions", build_definitions: "BuildDefinitions",
+    change: "Changes", changes: "Changes",
+    changeset: "Changesets", changesets: "Changesets",
+    children: "Children",
+    collaborator: "Collaborators", collaborators: "Collaborators",
+    defect: "Defects", defects: "Defects",
+    defect_suite: "DefectSuites", defect_suites: "DefectSuites",
+    discussion: "Discussion", discussions: "Discussion",
+    duplicate: "Duplicates", duplicates: "Duplicates",
+    editor: "Editors", editors: "Editors",
+    iteration: "Iterations", iterations: "Iterations",
+    milestone: "Milestones", milestones: "Milestones",
+    predecessor: "Predecessors", predecessors: "Predecessors",
+    project: "Projects", projects: "Projects",
+    release: "Releases", releases: "Releases",
+    result: "Results", results: "Results",
+    revision: "Revisions", revisions: "Revisions",
+    step: "Steps", steps: "Steps",
+    successor: "Successors", successors: "Successors",
+    tag: "Tags", tags: "Tags",
+    task: "Tasks", tasks: "Tasks",
+    team_member: "TeamMembers", team_members: "TeamMembers",
+    team_membership: "TeamMemberships", team_memberships: "TeamMemberships",
+    test_case: "TestCases", test_cases: "TestCases",
+    test_set: "TestSets", test_sets: "TestSets",
+    type_definition: "TypeDefinitions", type_definitions: "TypeDefinitions",
+    user_iteration_capacity: "UserIterationCapacities", user_iteration_capacities: "UserIterationCapacities",
+    user_permission: "UserPermissions", user_permissions: "UserPermissions",
+    user_story: "UserStories", user_stories: "UserStories",
+    value: "Values", values: "Values",
+    workspace: "Workspaces", workspaces: "Workspaces",
+  ]
+  def collectable_types, do: @collectable_types
 
   @doc """
   Rally expects the body JSON to have the Object Type as the root attibute.

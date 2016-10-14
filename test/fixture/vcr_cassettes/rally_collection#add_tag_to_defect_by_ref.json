@@ -1,0 +1,72 @@
+[
+  {
+    "request": {
+      "body": "{\"Tag\":{\"Name\":\"rally_api\"}}",
+      "headers": {
+        "X-RallyIntegrationPlatform": "Elixir 1.3.3",
+        "X-RallyIntegrationLibrary": "RallyRestToolkitForElixir",
+        "ZSESSIONID": "***"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://rally1.rallydev.com/slm/webservice/v2.0/tag/create"
+    },
+    "response": {
+      "body": "{\"CreateResult\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"Errors\": [], \"Warnings\": [], \"Object\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/tag/68881803432\", \"_refObjectUUID\": \"9fab2f54-cf4d-4327-9a0c-53b695c2aa55\", \"_objectVersion\": \"1\", \"_refObjectName\": \"rally_api\", \"CreationDate\": \"2016-10-13T22:10:12.931Z\", \"_CreatedAt\": \"yesterday at 4:10 pm\", \"ObjectID\": 68881803432, \"ObjectUUID\": \"9fab2f54-cf4d-4327-9a0c-53b695c2aa55\", \"VersionId\": \"1\", \"Subscription\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/subscription/16949477526\", \"_refObjectUUID\": \"1c6a9e32-a526-4a3d-914d-ac2bc68184cb\", \"_refObjectName\": \"Aetna - Consumer Digital\", \"_type\": \"Subscription\"}, \"Workspace\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044\", \"_refObjectUUID\": \"ac74cbb3-2ddb-498f-b1a8-97a3d12c17aa\", \"_refObjectName\": \"NewCo\", \"_type\": \"Workspace\"}, \"Archived\": false, \"Name\": \"rally_api\", \"_type\": \"Tag\"}}}",
+      "headers": {
+        "Date": "Fri, 14 Oct 2016 21:51:19 GMT",
+        "Content-Type": "application/json;  charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d90b8c75e19105720120db2e0e2fa237d1476481879; expires=Sat, 14-Oct-17 21:51:19 GMT; path=/; domain=.rallydev.com; HttpOnly",
+        "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
+        "X-XSS-Protection": "1; mode=block",
+        "RallyRequestID": "qd-app-071ext8pbgw1mkl1ovi0ruilnmnh.qd-app-072121604",
+        "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+        "Vary": "Accept-Encoding",
+        "P3P": "CP=\"NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA\"",
+        "Cache-Control": "private,max-age=0,must-revalidate",
+        "Server": "cloudflare-nginx",
+        "CF-RAY": "2f1e408449295825-DFW"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{\"CollectionItems\":[{\"_ref\":\"https://rally1.rallydev.com/slm/webservice/v2.0/tag/68881803432\"}]}",
+      "headers": {
+        "X-RallyIntegrationPlatform": "Elixir 1.3.3",
+        "X-RallyIntegrationLibrary": "RallyRestToolkitForElixir",
+        "ZSESSIONID": "***"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://rally1.rallydev.com/slm/webservice/v2.0/defect/67738776156/Tags/add"
+    },
+    "response": {
+      "body": "{\"OperationResult\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"Errors\": [], \"Warnings\": [], \"Results\": [{\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/tag/68881803432\", \"_refObjectUUID\": \"9fab2f54-cf4d-4327-9a0c-53b695c2aa55\", \"_objectVersion\": \"1\", \"_refObjectName\": \"rally_api\", \"CreationDate\": \"2016-10-13T22:10:12.931Z\", \"_CreatedAt\": \"yesterday at 4:10 pm\", \"ObjectID\": 68881803432, \"ObjectUUID\": \"9fab2f54-cf4d-4327-9a0c-53b695c2aa55\", \"VersionId\": \"1\", \"Subscription\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/subscription/16949477526\", \"_refObjectUUID\": \"1c6a9e32-a526-4a3d-914d-ac2bc68184cb\", \"_refObjectName\": \"Aetna - Consumer Digital\", \"_type\": \"Subscription\"}, \"Workspace\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/workspace/52931496044\", \"_refObjectUUID\": \"ac74cbb3-2ddb-498f-b1a8-97a3d12c17aa\", \"_refObjectName\": \"NewCo\", \"_type\": \"Workspace\"}, \"Archived\": false, \"Name\": \"rally_api\", \"_type\": \"Tag\"}]}}",
+      "headers": {
+        "Date": "Fri, 14 Oct 2016 21:51:20 GMT",
+        "Content-Type": "application/json;  charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d90b8c75e19105720120db2e0e2fa237d1476481879; expires=Sat, 14-Oct-17 21:51:19 GMT; path=/; domain=.rallydev.com; HttpOnly",
+        "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
+        "X-XSS-Protection": "1; mode=block",
+        "RallyRequestID": "qd-app-011qhdt5l70gt81e080v8yvkcfq.qd-app-012057787",
+        "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+        "Vary": "Accept-Encoding",
+        "P3P": "CP=\"NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA\"",
+        "Cache-Control": "private,max-age=0,must-revalidate",
+        "Server": "cloudflare-nginx",
+        "CF-RAY": "2f1e408549885825-DFW"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

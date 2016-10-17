@@ -74,7 +74,7 @@ defmodule RallyApi do
 
   def url(_client = %Client{endpoint: endpoint}, path) do
     cond do
-      path =~ ~r/^#{endpoint}/ -> path
+      path =~ ~r/^#{endpoint}/ -> path # if path already contains endpoint, return it as-is
       true ->
         endpoint <> path
     end

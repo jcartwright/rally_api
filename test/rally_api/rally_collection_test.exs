@@ -28,7 +28,7 @@ defmodule RallyApi.RallyCollectionTest do
       {:ok, %CreateResult{object: tag}} = create(@client, :tag, %{"Name": "rally_api"})
 
       # add tag to the defect.tags collection
-      {:ok, %OperationResult{results: results}} = add(@client, @artifact, :tags, %{"Name" => "rally_api"})
+      {:ok, %OperationResult{results: results}} = add(@client, @artifact, :tags, [%{"Name" => "rally_api"}])
       assert Enum.any?(results, &(&1["_ref"] == tag["_ref"]))
     end
   end
@@ -39,6 +39,21 @@ defmodule RallyApi.RallyCollectionTest do
 
       {:ok, %OperationResult{results: results}} = add(@client, @artifact, :tag, [%{"_ref" => tag["_ref"]}])
       assert Enum.any?(results, &(&1["_ref"] == tag["_ref"]))
+    end
+  end
+
+  test "remove tag from defect" do
+    use_cassette "rally_collection#remove_tag_from_defect", match_requests_on: [:query] do
+      # add tag 'rally_api' to defect
+      {:ok, %OperationResult{results: tags}} = add(@client, @artifact, :tags, [%{"Name" => "rally_api"}])
+      tag = Enum.at(tags, 0)
+
+      # remove the tag
+      {:ok, result} = remove(@client, @artifact, :tags, [%{"_ref" => tag["_ref"]}])
+
+      # re-read the defect.tags collection
+      {:ok, %QueryResult{results: tags}} = read(@client, @artifact, :tags)
+      assert Enum.empty?(tags)
     end
   end
 end

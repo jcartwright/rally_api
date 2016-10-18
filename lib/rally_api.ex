@@ -162,10 +162,10 @@ defmodule RallyApi do
   ## Examples
 
     iex> RallyApi.custom_headers
-    [{"X-RallyIntegrationPlatform", "Elixir 1.3.3"}, {"X-RallyIntegrationLibrary", "RallyRestToolkitForElixir"}]
+    [{"X-RallyIntegrationPlatform", "Elixir 1.3.4"}, {"X-RallyIntegrationLibrary", "RallyRestToolkitForElixir"}]
 
     iex> RallyApi.custom_headers([{"X-RallyIntegrationName", "MyApp"}])
-    [{"X-RallyIntegrationName", "MyApp"}, {"X-RallyIntegrationPlatform", "Elixir 1.3.3"}, {"X-RallyIntegrationLibrary", "RallyRestToolkitForElixir"}]
+    [{"X-RallyIntegrationName", "MyApp"}, {"X-RallyIntegrationPlatform", "Elixir 1.3.4"}, {"X-RallyIntegrationLibrary", "RallyRestToolkitForElixir"}]
 
   ## More info
   https://rally1.rallydev.com/slm/doc/webservice/clientinfo.jsp

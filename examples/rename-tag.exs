@@ -10,8 +10,8 @@ defmodule RenameTag do
   @project_ref "https://rally1.rallydev.com/slm/webservice/v2.0/project/55699003530"
 
   def main do
-    old_tag_name = "rename-me"
     # Create a tag that will be added to some stories
+    old_tag_name = "rename-me"
     {:ok, old_tag_ref} = create_tag(old_tag_name)
 
     # Create a few stories and tag them
@@ -25,37 +25,20 @@ defmodule RenameTag do
     # Create another tag, and swap the new tag for the old one
     new_tag_name = "renamed"
     {:ok, new_tag_ref} = create_tag(new_tag_name)
+
+    swap_tags(stories, old_tag_ref, new_tag_ref)
     
-    stories
-      |> Enum.each(fn(story) ->
-        # Add the new tag to the Story.Tags collection
-        RallyApi.RallyCollection.add(@client, get_ref(story), :tags, [%{"_ref" => new_tag_ref}])
-
-        # Remove the old tag from the Story.Tags collection
-        RallyApi.RallyCollection.remove(@client, get_ref(story), :tags, [%{"_ref" => old_tag_ref}])
-      end)
-
     IO.puts "Stories tagged with #{new_tag_name}..."
     stories = find_stories_with_tag(new_tag_name)
     show_stories(stories)
 
+    IO.puts "Cleaning up..."
     delete_stories(stories)
-    archive_tags([old_tag_ref, new_tag_ref])
   end
 
   defp create_tag(name) do
     {:ok, %CreateResult{object: tag}} = RallyApi.RallyCreate.create(@client, :tag, %{"Name" => name})
     {:ok, get_ref(tag)}
-  end
-
-  defp archive_tags(tag_refs) do
-    # Tags cannot be deleted via the API, only archived
-    IO.puts "** TODO: Implement archive_tags/1 function **"
-    # tag_refs
-    # |> Enum.each(fn(tag_ref) ->
-      # TODO: find/read tags
-    # RallyApi.RallyDelete.delete(@client, :tag, tag_id)
-    # end)
   end
 
   defp create_stories_with_tag(tag_ref) do
@@ -89,6 +72,17 @@ defmodule RenameTag do
     case RallyApi.RallyQuery.find(@client, :story, query, fetch, options) do
       {:ok, %QueryResult{results: stories}} -> stories
     end
+  end
+
+  defp swap_tags(stories, old_tag_ref, new_tag_ref) do
+    stories
+      |> Enum.each(fn(story) ->
+        # Add the new tag to the Story.Tags collection
+        RallyApi.RallyCollection.add(@client, get_ref(story), :tags, [%{"_ref" => new_tag_ref}])
+
+        # Remove the old tag from the Story.Tags collection
+        RallyApi.RallyCollection.remove(@client, get_ref(story), :tags, [%{"_ref" => old_tag_ref}])
+      end)
   end
 
   defp delete_stories(stories) do

@@ -21,6 +21,23 @@ defmodule RallyApi.Rallyties do
   ]
   def createable_types, do: @createable_types
 
+  @deleteable_types [
+    allowedattributevalue: "allowedattributevalue", attachment: "attachment",
+    attachment_content: "attachmentcontent", build: "build", build_definition: "builddefinition",
+    change: "change", changeset: "changeset", conversation_post: "conversationpost",
+    defect: "defect", defect_suite: "defectsuite", hierarchical_requirement: "hierarchicalrequirement",
+    iteration: "iteration", milestone: "milestone", feature: "portfolioitem/feature",
+    initiative: "portfolioitem/initiative", preference: "preference", 
+    preliminary_estimate: "preliminaryestimate", project_permission: "projectpermission",
+    recycle_bin_entry: "recyclebinentry", release: "release", scm_repository: "scmrepository",
+    state: "state", story: "hierarchicalrequirement", task: "task", test_case: "testcase", 
+    test_case_result: "testcaseresult", test_case_step: "testcasestep", test_folder: "testfolder", 
+    test_set: "testset", time_entry_value: "timeentryvalue", time_entry_item: "timeentryitem", 
+    type_definition: "typedefinition", user: "user", user_iteration_capacity: "useriterationcapacity", 
+    workspace_permission: "workspacepermission",
+  ]
+  def deleteable_types, do: @deleteable_types
+
   @queryable_types [
     artifact: "artifact", artifact_notification: "artifactnotification", attachment: "attachment",
     blocker: "blocker", build: "build", build_definition: "builddefinition",

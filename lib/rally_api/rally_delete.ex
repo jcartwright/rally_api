@@ -1,5 +1,6 @@
 defmodule RallyApi.RallyDelete do
   import RallyApi
+  import RallyApi.Rallyties, only: [deleteable_types: 0]
 
   alias RallyApi.OperationResult
 
@@ -20,7 +21,14 @@ defmodule RallyApi.RallyDelete do
     end
   end
 
-  defp path_for(type, object_id) do
-    {:ok, "#{type}/#{object_id}"}
+  defp path_for(type, object_id) when is_binary(type), do: path_for(String.to_atom(type), object_id)
+
+  defp path_for(type, object_id) when is_atom(type) do
+    cond do
+      path = deleteable_types[type] ->
+        {:ok, "#{path}/#{object_id}"}
+      true ->
+        {:error, ":#{type} is not a deleteable type"}
+    end
   end
 end

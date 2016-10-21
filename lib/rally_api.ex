@@ -88,6 +88,8 @@ defmodule RallyApi do
 
   def append_fetch(path, fetch) when fetch == "", do: path
 
+  def append_fetch(path, fetch) when is_atom(fetch), do: append_fetch(path, Atom.to_string(fetch))
+
   def append_fetch(path, fetch) do
     path <> "&fetch=#{URI.encode(fetch)}"
   end

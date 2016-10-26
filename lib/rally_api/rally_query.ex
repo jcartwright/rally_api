@@ -15,14 +15,22 @@ defmodule RallyApi.RallyQuery do
 
   def find(client, type), do: find(client, type, "")
 
-  def read(client, type, ref) do
+  @doc """
+  Reads a Rally Object using type, _ref, and an optional fetch.
+
+  If successful, it returns a naked Map with the type as the root key (i.e. %{"Defect" => %{...}}).
+
+  If not successful, it returns a naked Map of an OperationResult (i.e. %{"OperationResult" => %{...}}),
+  and a message in the Errors collection with details.
+  """
+  def read(client, type, ref, fetch \\ "") do
     ref_id = ref
       |> String.split("/")
       |> List.last
 
     case path_for(type) do
       {:ok, path} ->
-        get client, "#{path}/#{ref_id}"
+        get client, "#{path}/#{ref_id}", "", fetch
       {:error, reason} ->
         {:error, reason}
     end

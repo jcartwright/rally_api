@@ -110,6 +110,18 @@ defmodule RallyApi.RallyQueryTest do
     end
   end
 
+  test "read/4 supports fetch" do
+    use_cassette "rally_query#read_with_fetch" do
+      type = :story
+      ref = "58129183590"
+      fetch = "FormattedID,Owner"
+
+      {:ok, result} = read(@client, type, ref, fetch)
+      assert Map.has_key?(result["HierarchicalRequirement"], "FormattedID")
+      assert Map.has_key?(result["HierarchicalRequirement"], "Owner")
+    end
+  end
+
   test "path_for/1 with queryable types" do
     Enum.each(queryable_types, fn(query_type) ->
       assert {:ok, _path} = path_for(elem(query_type, 0))

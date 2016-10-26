@@ -19,10 +19,23 @@ defmodule RallyApi.Rallyties do
     user_iteration_capacity: "useriterationcapacity", web_link_definition: "weblinkdefinition",
     workspace: "workspace", workspace_permission: "workspacepermission", 
   ]
+
+  @doc """
+  Maps a snake_case `Atom` to the Rally Type for all _Createable_ objects in the Rally API
+
+  ## Examples:
+
+    iex> RallyApi.Rallyties.createable_types[:feature]
+    "portfolioitem/feature"
+
+    iex> RallyApi.Rallyties.createable_types[:defect_suite]
+    "defectsuite"
+
+  """
   def createable_types, do: @createable_types
 
   @deleteable_types [
-    allowedattributevalue: "allowedattributevalue", attachment: "attachment",
+    allowed_attribute_value: "allowedattributevalue", attachment: "attachment",
     attachment_content: "attachmentcontent", build: "build", build_definition: "builddefinition",
     change: "change", changeset: "changeset", conversation_post: "conversationpost",
     defect: "defect", defect_suite: "defectsuite", hierarchical_requirement: "hierarchicalrequirement",
@@ -36,6 +49,22 @@ defmodule RallyApi.Rallyties do
     type_definition: "typedefinition", user: "user", user_iteration_capacity: "useriterationcapacity", 
     workspace_permission: "workspacepermission",
   ]
+  
+  @doc """
+  Maps a snake_case `Atom` to the Rally Type for all _Deleteable_ objects in the Rally API
+
+  ## Examples:
+
+    iex> RallyApi.Rallyties.deleteable_types[:feature]
+    "portfolioitem/feature"
+
+    iex> RallyApi.Rallyties.deleteable_types[:defect_suite]
+    "defectsuite"
+
+    iex> RallyApi.Rallyties.deleteable_types[:workspace]
+    nil
+
+  """
   def deleteable_types, do: @deleteable_types
 
   @queryable_types [
@@ -58,6 +87,19 @@ defmodule RallyApi.Rallyties do
     user_profile: "userprofile", workspace: "workspace", workspace_configuration: "workspaceconfiguration",
     workspace_permission: "workspacepermission", 
   ]
+  
+  @doc """
+  Maps a snake_case `Atom` to the Rally Type for all _Queryable_ objects in the Rally API
+
+  ## Examples:
+
+    iex> RallyApi.Rallyties.queryable_types[:story]
+    "hierarchicalrequirement"
+
+    iex> RallyApi.Rallyties.queryable_types[:defect_suite]
+    "defectsuite"
+
+  """
   def queryable_types, do: @queryable_types
 
   @collectable_types [
@@ -99,7 +141,35 @@ defmodule RallyApi.Rallyties do
     value: "Values", values: "Values",
     workspace: "Workspaces", workspaces: "Workspaces",
   ]
+  
+  @doc """
+  Maps a snake_case `Atom` to the Rally Type for all _Collection_ objects in the Rally API.
+
+  The map includes both singular and plural mappings.
+
+  ## Examples:
+
+    iex> RallyApi.Rallyties.collectable_types[:release]
+    "Releases"
+
+    iex> RallyApi.Rallyties.collectable_types[:releases]
+    "Releases"
+
+  """
   def collectable_types, do: @collectable_types
+
+  @doc """
+  Rally uses the `_ref` value frequently when making reference to a REST Resource in the API.
+  The `get_ref` function finds the `_ref` key from the given `Map`.
+  """
+  def get_ref(%{"_ref" => ref}), do: ref
+
+  def get_ref(object) when is_map(object) do
+    object
+    |> Map.values
+    |> List.first
+    |> get_ref
+  end
 
   @doc """
   Rally expects the body JSON to have the Object Type as the root attibute.

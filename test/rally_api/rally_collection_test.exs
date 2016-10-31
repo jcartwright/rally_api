@@ -23,6 +23,19 @@ defmodule RallyApi.RallyCollectionTest do
     end
   end
 
+  test "find/6" do
+    artifact = "https://rally1.rallydev.com/slm/webservice/v2.0/defect/63573990509"
+
+    use_cassette "rally_collection#find_with_text", match_requests_on: [:query] do
+      {:ok, %QueryResult{} = result} = read(@client, artifact, :discussion)
+      assert 3 == result.total_result_count
+      
+      query = "(Text contains lorem)"
+      {:ok, %QueryResult{} = result} = find(@client, artifact, :discussion, query)
+      assert 2 == result.total_result_count
+    end
+  end
+
   test "add tag to a defect" do
     use_cassette "rally_collection#add_tag_to_defect", match_requests_on: [:query] do
       {:ok, %CreateResult{object: tag}} = create(@client, :tag, %{"Name": "rally_api"})

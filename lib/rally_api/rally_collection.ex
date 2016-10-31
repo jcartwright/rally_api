@@ -31,7 +31,12 @@ defmodule RallyApi.RallyCollection do
   ```
   """
   def find(client, artifact, collection_type, query, fetch \\ "", options \\ []) do
-    raise "Not implemented" 
+    case collection_path_for(collection_type) do
+      {:ok, collection_path} ->
+        get client, "#{artifact}/#{collection_path}", query, fetch, options
+      {:error, reason} ->
+        {:error, reason}
+    end
   end
 
   @doc """

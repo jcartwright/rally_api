@@ -2,7 +2,7 @@ defmodule RallyApi.RallyCollectionTest do
   use ExUnit.Case, async: false
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
-  import RallyApi.{TestHelper, RallyCreate}
+  import RallyApi.{RallyCreate}
   import RallyApi.RallyCollection
   alias RallyApi.{Client, CreateResult, OperationResult, QueryResult}
 
@@ -62,7 +62,7 @@ defmodule RallyApi.RallyCollectionTest do
       tag = Enum.at(tags, 0)
 
       # remove the tag
-      {:ok, result} = remove(@client, @artifact, :tags, [%{"_ref" => tag["_ref"]}])
+      {:ok, _result} = remove(@client, @artifact, :tags, [%{"_ref" => tag["_ref"]}])
 
       # re-read the defect.tags collection
       {:ok, %QueryResult{results: tags}} = read(@client, @artifact, :tags)

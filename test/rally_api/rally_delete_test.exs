@@ -2,8 +2,8 @@ defmodule RallyApi.RallyDeleteTest do
   use ExUnit.Case, async: false
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
-  import RallyApi.{TestHelper, RallyCreate, RallyDelete, RallyQuery}
-  alias RallyApi.{Client, CreateResult, OperationResult, QueryResult}
+  import RallyApi.{TestHelper, RallyCreate, RallyDelete}
+  alias RallyApi.{Client, CreateResult, OperationResult}
   
   @client Client.new(%{zsessionid: Application.get_env(:rally_api, :api_key)})
 

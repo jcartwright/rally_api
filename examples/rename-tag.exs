@@ -1,13 +1,19 @@
 # This is an example of renaming a tag in Rally
 # Setup:
 # - Make sure you have a config/dec/exs file with a valid API key or user/password
+# - Replace @project_ref with a valid project
 #
 # $ mix run examples/rename-tag.exs
 defmodule RenameTag do
-  alias RallyApi.{Client, CreateResult, QueryResult}
+  alias RallyApi.{Client, Rallyties, RallyCollection}
+  alias RallyApi.{RallyCreate, CreateResult}
+  alias RallyApi.{RallyDelete, RallyUpdate, OperationResult}
+  alias RallyApi.{RallyQuery, QueryResult}
+
+  import RallyApi.Rallyties, only: [get_ref: 1]
 
   @client Client.new(%{zsessionid: Application.get_env(:rally_api, :api_key)})
-  @project_ref "https://rally1.rallydev.com/slm/webservice/v2.0/project/55699003530"
+  @project_ref "https://rally1.rallydev.com/slm/webservice/v2.0/project/OBJECT_ID"
 
   def main do
     # Create a tag that will be added to some stories
@@ -37,7 +43,7 @@ defmodule RenameTag do
   end
 
   defp create_tag(name) do
-    {:ok, %CreateResult{object: tag}} = RallyApi.RallyCreate.create(@client, :tag, %{"Name" => name})
+    {:ok, %CreateResult{object: tag}} = RallyCreate.create(@client, :tag, %{"Name" => name})
     {:ok, get_ref(tag)}
   end
 
@@ -45,11 +51,10 @@ defmodule RenameTag do
     for x <- (1..3) do
       attrs = %{
         "Name" => "Test Story #{x}",
-        "c_CreationTeamName" => "Creation Team not assigned yet",
         "Project" => %{"_ref" => @project_ref}
       }
 
-      case RallyApi.RallyCreate.create(@client, :story, attrs) do
+      case RallyCreate.create(@client, :story, attrs) do
         {:ok, %CreateResult{object: story}} ->
           story
           |> get_ref
@@ -61,7 +66,7 @@ defmodule RenameTag do
   end
 
   defp add_tag_to_story(story_ref, tag_ref) do
-    RallyApi.RallyCollection.add(@client, story_ref, :tags, [%{"_ref" => tag_ref}])
+    RallyCollection.add(@client, story_ref, :tags, [%{"_ref" => tag_ref}])
   end
 
   defp find_stories_with_tag(tag_name) do
@@ -69,7 +74,7 @@ defmodule RenameTag do
     fetch = "FormattedID,ObjectID,Name,Tags"
     options = [project: @project_ref, order: "FormattedID"]
 
-    case RallyApi.RallyQuery.find(@client, :story, query, fetch, options) do
+    case RallyQuery.find(@client, :story, query, fetch, options) do
       {:ok, %QueryResult{results: stories}} -> stories
     end
   end
@@ -78,27 +83,23 @@ defmodule RenameTag do
     stories
       |> Enum.each(fn(story) ->
         # Add the new tag to the Story.Tags collection
-        RallyApi.RallyCollection.add(@client, get_ref(story), :tags, [%{"_ref" => new_tag_ref}])
+        RallyCollection.add(@client, get_ref(story), :tags, [%{"_ref" => new_tag_ref}])
 
         # Remove the old tag from the Story.Tags collection
-        RallyApi.RallyCollection.remove(@client, get_ref(story), :tags, [%{"_ref" => old_tag_ref}])
+        RallyCollection.remove(@client, get_ref(story), :tags, [%{"_ref" => old_tag_ref}])
       end)
   end
 
   defp delete_stories(stories) do
     stories
     |> Enum.each(fn(story) ->
-      case RallyApi.RallyDelete.delete(@client, :story, story["ObjectID"]) do
-        {:ok, result} ->
+      case RallyDelete.delete(@client, :story, story["ObjectID"]) do
+        {:ok, _result} ->
           IO.puts "Deleted Story #{story["FormattedID"]}"
         {:error, reason} ->
           IO.puts reason
       end
     end)
-  end
-
-  defp get_ref(object) when is_map(object) do
-    object |> Map.fetch!("_ref")
   end
 
   defp show_stories(stories) do

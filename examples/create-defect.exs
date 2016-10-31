@@ -6,7 +6,12 @@
 #
 # $ mix run examples/create-defect.exs
 defmodule CreateDefect do
-  alias RallyApi.{Client, CreateResult, OperationResult, QueryResult}
+  alias RallyApi.{Client, Rallyties}
+  alias RallyApi.{RallyCreate, CreateResult}
+  alias RallyApi.{RallyDelete, RallyUpdate, OperationResult}
+  alias RallyApi.{RallyQuery, QueryResult}
+
+  import Rallyties, only: [get_ref: 1]
 
   @client Client.new(%{zsessionid: Application.get_env(:rally_api, :api_key)})
   @project_ref "https://rally1.rallydev.com/slm/webservice/v2.0/project/OBJECT_ID"
@@ -21,14 +26,14 @@ defmodule CreateDefect do
       }
     }
 
-    case RallyApi.RallyCreate.create(@client, :defect, attrs) do
+    case RallyCreate.create(@client, :defect, attrs) do
       {:ok, %CreateResult{object: defect}} ->
         # Display the Defect
         show_defect(defect)
 
         # Set the Owner & Schedule State on the defect
         username = "jason@example.com"
-        {:ok, %QueryResult{results: users}} = RallyApi.RallyQuery.find(
+        {:ok, %QueryResult{results: users}} = RallyQuery.find(
           @client, :user, "(UserName = \"#{username}\")", "UserName,EmailAddress")
 
         changes = %{"Defect" => %{
@@ -39,11 +44,15 @@ defmodule CreateDefect do
 
         IO.puts "Updating defect..."
 
-        {:ok, %OperationResult{object: defect}} = RallyApi.RallyUpdate.update(@client, :defect, defect["ObjectID"], changes)
+        {:ok, %OperationResult{object: defect}} = RallyUpdate.update(
+          @client, :defect, defect["ObjectID"], changes)
+        
         :timer.sleep(1000) # give time for the update to complete
         
         # Redisplay the Defect
-        {:ok, %{"Defect" => defect}} = RallyApi.RallyQuery.read(@client, :defect, get_ref(defect), "Name,Priority,ScheduleState,Owner")
+        {:ok, %{"Defect" => defect}} = RallyQuery.read(
+          @client, :defect, get_ref(defect), "Name,Priority,ScheduleState,Owner")
+        
         show_defect(defect)
 
         # Clean up
@@ -80,14 +89,10 @@ defmodule CreateDefect do
 
   defp display_owner(owner) when is_map(owner), do: display_owner(Map.get(owner, "_refObjectName", ""))
 
-  defp display_owner(owner), do: display_owner("(null)")
+  defp display_owner(_owner), do: display_owner("(null)")
 
   defp delete_defect(defect) do
-    RallyApi.RallyDelete.delete(@client, (defect |> get_ref))
-  end
-
-  defp get_ref(object) when is_map(object) do
-    Map.fetch!(object, "_ref")
+    RallyDelete.delete(@client, get_ref(defect))
   end
 end
 

@@ -9,14 +9,23 @@ defmodule RallyApi.ClientTest do
     assert client.endpoint == "https://rally1.rallydev.com/slm/webservice/v2.0/"
   end
 
-  test "custom endpoint" do
-    expected = "https://ca.ca.ca/"
+  test "endpoint" do
+    client = new(%{endpoint: "https://my/custom/endpoint"})
+    assert client.endpoint == "https://my/custom/endpoint"
+  end
 
-    client = new(%{}, "https://ca.ca.ca/")
-    assert client.endpoint == expected
+  test "auth token" do
+    client = new(%{auth: "token"})
+    assert client.auth == "token"
+  end
 
-    # when trailing / is missing
-    client = new(%{}, "https://ca.ca.ca")
-    assert client.endpoint == expected
+  test "auth map username/password" do
+    client = new(%{auth: %{user: "user@email.com", password: "P@ssw0rd!"}})
+    assert client.auth == %{user: "user@email.com", password: "P@ssw0rd!"}
+  end
+
+  test "workspace" do
+    client = new(%{workspace: "https://path/to/workspace/ref"})
+    assert client.workspace == "https://path/to/workspace/ref"
   end
 end

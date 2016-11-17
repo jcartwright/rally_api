@@ -8,6 +8,11 @@ defmodule RallyApiTest do
     assert authorization_header(%{user: "user", password: "password"}, []) == [{"Authorization", "Basic dXNlcjpwYXNzd29yZA=="}]
   end
 
+  test "authorization_header from client.auth with username and password" do
+    client = RallyApi.Client.new(%{auth: %{user: "user", password: "password"}})
+    assert authorization_header(client.auth, []) == [{"Authorization", "Basic dXNlcjpwYXNzd29yZA=="}]
+  end
+
   test "authorization_header using api key" do
     assert authorization_header(%{zsessionid: "ZSESSIONID"}, []) == [{"ZSESSIONID", "ZSESSIONID"}]
   end

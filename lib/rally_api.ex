@@ -10,24 +10,28 @@ defmodule RallyApi do
     result =
       client
       |> url(path)
+      |> append_options(options)
       |> HTTPoison.post(body, headers)
   end
 
-  def put(client, path, body \\ "", options \\ []) do
-    headers = 
-      client.auth
-      |> authorization_header(custom_headers)
+  # def put(client, path, body \\ "", options \\ []) do
+  #   headers = 
+  #     client.auth
+  #     |> authorization_header(custom_headers)
 
-    result =
-      client
-      |> url(path)
-      |> HTTPoison.put(body, headers)
-  end
+  #   result =
+  #     client
+  #     |> url(path)
+  #     |> HTTPoison.put(body, headers)
+  # end
 
   def get(client, path, query \\ "", fetch \\ "", options \\ []) do
     headers = 
       client.auth
       |> authorization_header(custom_headers)
+
+    options = client
+      |> merge_default_options(options)
 
     result = 
       client
@@ -102,6 +106,10 @@ defmodule RallyApi do
       |> rallify_options
       |> URI.encode_query
     )
+  end
+
+  def merge_default_options(client, options \\ []) do
+    Keyword.merge([workspace: client.workspace], options)
   end
 
   def rallify_options(options) do

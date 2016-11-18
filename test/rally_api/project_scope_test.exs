@@ -7,7 +7,7 @@ defmodule RallyApi.ProjectScopeTest do
 
   @client Client.new(%{zsessionid: Application.get_env(:rally_api, :api_key)})
   # Testing Sandbox
-  @parent_ref "https://rally1.rallydev.com/slm/webservice/v2.0/project/55699003530"
+  @parent_ref "https://rally1.rallydev.com/slm/webservice/v2.0/project/76001020472"
   # Test Project 1
   @child_ref "https://rally1.rallydev.com/slm/webservice/v2.0/project/55700974877"
 
@@ -16,11 +16,11 @@ defmodule RallyApi.ProjectScopeTest do
     :ok
   end
   
-  # Training Sandbox
-  # |- Test Project 1
-  #    |- Child Story in Test Project 1
-  # |- Test Project 2
-  #    |- Child Story in Test Project 2
+  # Ensight Enterprises (Workspace)
+  # |- REST Toolkit for Elixir (Project)
+  #    |- User Story 1
+  # |- Sub Project 1
+  #    |- User Story 2
 
   test "find with project scope down false" do
     use_cassette "project#find_without_project_scope_down", match_requests_on: [:query] do

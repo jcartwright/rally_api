@@ -2,14 +2,13 @@ defmodule RallyApi.DefectsTest do
   use ExUnit.Case, async: false
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
-  import RallyApi.Defects
-  alias RallyApi.{Client, QueryResult}
+  import RallyApi.{TestHelper, Defects}
+  alias RallyApi.{Client, CreateResult, QueryResult}
 
   doctest RallyApi.Defects
 
   @client Client.new(%{zsessionid: Application.get_env(:rally_api, :api_key)})
-  @_ref "https://rally1.rallydev.com/slm/webservice/v2.0/defect/54626752843"
-  @project "https://rally1.rallydev.com/slm/webservice/v2.0/project/55700974877"
+  @project Application.get_env(:rally_api, :default_project)
 
   setup do
     ExVCR.Config.filter_request_headers("ZSESSIONID")
@@ -29,7 +28,7 @@ defmodule RallyApi.DefectsTest do
       {:ok, %QueryResult{results: defects}} = list(@client, project: @project)
       assert defects |> Enum.map(&(&1["Project"]["_ref"])) |> Enum.uniq == [@project]
 
-      p_id = "https://rally1.rallydev.com/slm/webservice/v2.0/project/55700976506"
+      p_id = "https://rally1.rallydev.com/slm/webservice/v2.0/project/76175119612"
       {:ok, %QueryResult{results: defects}} = list(@client, project: p_id)
       assert Enum.empty?(defects)
     end
@@ -38,15 +37,17 @@ defmodule RallyApi.DefectsTest do
   test "find/3 query on priority" do
     use_cassette "defects#find_with_priority" do
       {:ok, %QueryResult{} = result} = find(@client, "(Priority = \"High Attention\")", "Priority")
-      assert result.total_result_count == 40
+      assert result.total_result_count > 0
       assert result.results |> Enum.reject(&(&1["Priority"] == "High Attention")) |> Enum.empty?
     end
   end
 
   test "read/2" do
     use_cassette "defects#read" do
-      {:ok, %{"Defect" => %{"_ref" => ref}}} = read(@client, @_ref)
-      assert ref == @_ref
+      {:ok, %CreateResult{object: defect}} = RallyApi.RallyCreate.create(@client, :defect, simple_defect_attributes)
+      ref = defect["_ref"]
+      {:ok, %{"Defect" => %{"_ref" => read_ref}}} = read(@client, ref)
+      assert read_ref == ref
     end
   end
 end

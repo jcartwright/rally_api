@@ -6,7 +6,7 @@ defmodule RallyApi.SecurityTokenTest do
   alias RallyApi.{Client}
 
   @client Client.new(
-    %{user: Application.get_env(:rally_api, :user), password: Application.get_env(:rally_api, :password)}
+    %{auth: %{user: Application.get_env(:rally_api, :user), password: Application.get_env(:rally_api, :password)}}
   )
 
   setup do

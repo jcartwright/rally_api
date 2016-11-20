@@ -18,20 +18,18 @@ defmodule RallyApi.RallyCreateTest do
       attrs = %{
         "Name" => "Simple Defect via RallyRestToolkitForElixir",
         "Priority" => "Normal",
-        "c_CreationTeamName" => "Creation Team not assigned yet",
       }
 
       {:ok, %CreateResult{object: defect}} = create(@client, type, attrs)
       assert defect["Name"] == attrs["Name"]
       assert defect["Priority"] == attrs["Priority"]
-      assert defect["c_CreationTeamName"] == attrs["c_CreationTeamName"]
     end
   end
 
   test "create fails on required field" do
     use_cassette "rally_create#fails_on_required_field" do
       type = :defect
-      attrs = %{"Name" => "Should fail Validation"}
+      attrs = %{}
 
       {:error, reason} = create(@client, type, attrs)
       assert reason =~ ~r/^Validation error/
@@ -52,18 +50,33 @@ defmodule RallyApi.RallyCreateTest do
       assert reason =~ ~r/Could not read referenced object/
     end
   end
+
+  test "create fails with invalid project" do
+    use_cassette "rally_create#fails_with_invalid_project" do
+      type = :defect
+      attrs = %{
+        "Defect" => %{
+          "Name" => "Simple Defect with Project Scope",
+          "Project" => %{"_ref" => "https://rally1.rallydev.com/slm/webservice/v2.0/project/0000000001"}
+        }
+      }
+
+      {:error, reason} = create(@client, type, attrs)
+      assert reason =~ ~r/Could not read referenced object/
+    end
+  end
   
   test "create with project scope" do
     use_cassette "rally_create#defect_with_project_scope" do
+      project_ref = "https://rally1.rallydev.com/slm/webservice/v2.0/project/76175116672"
       type = :defect
       attrs = %{
         "Name" => "Simple Defect with Project Scope",
-        "c_CreationTeamName" => "Creation Team not assigned yet",
-        "Project" => %{"_ref" => "https://rally1.rallydev.com/slm/webservice/v2.0/project/55700974877"}
+        "Project" => %{"_ref" => project_ref}
       }
 
       {:ok, %CreateResult{object: defect}} = create(@client, type, attrs)
-      assert defect["Project"]["_refObjectName"] == "Test Project 1"
+      assert defect["Project"]["_ref"] == project_ref
     end
   end
 end

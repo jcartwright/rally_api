@@ -1,0 +1,38 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "X-RallyIntegrationPlatform": "Elixir 1.3.4",
+        "X-RallyIntegrationLibrary": "RallyRestToolkitForElixir",
+        "ZSESSIONID": "***"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://rally1.rallydev.com/slm/webservice/v2.0/project/76001020472?&"
+    },
+    "response": {
+      "body": "{\"Project\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/project/76001020472\", \"_refObjectUUID\": \"fd1346c6-71b2-4509-b8bf-5c802ede167c\", \"_objectVersion\": \"2\", \"_refObjectName\": \"REST Toolkit for Elixir\", \"CreationDate\": \"2016-11-17T21:03:11.163Z\", \"_CreatedAt\": \"Nov 17\", \"ObjectID\": 76001020472, \"ObjectUUID\": \"fd1346c6-71b2-4509-b8bf-5c802ede167c\", \"VersionId\": \"2\", \"Subscription\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/subscription/76001019360\", \"_refObjectUUID\": \"5d153575-38c4-4005-814e-d442e0082523\", \"_refObjectName\": \"CE - Ensight Enterprises, LLC - jason@ensightenterprises.com\", \"_type\": \"Subscription\"}, \"BuildDefinitions\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Project/76001020472/BuildDefinitions\", \"_type\": \"BuildDefinition\", \"Count\": 1}, \"Children\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Project/76001020472/Children\", \"_type\": \"Project\", \"Count\": 0}, \"Description\": \"Develop a hex package in Elixir that wraps the Rally/Agile Central REST API.\", \"Editors\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Project/76001020472/Editors\", \"_type\": \"User\", \"Count\": 2}, \"Iterations\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Project/76001020472/Iterations\", \"_type\": \"Iteration\", \"Count\": 3}, \"Name\": \"REST Toolkit for Elixir\", \"Notes\": \"\", \"Owner\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/user/76001020116\", \"_refObjectUUID\": \"327a8548-0316-4c17-96b8-2196450d262b\", \"_refObjectName\": \"Jason Cartwright\", \"_type\": \"User\"}, \"Parent\": null, \"Releases\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Project/76001020472/Releases\", \"_type\": \"Release\", \"Count\": 0}, \"RevisionHistory\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/revisionhistory/76001020476\", \"_refObjectUUID\": \"6efbeeea-762e-461d-9c0a-81d9109d9326\", \"_type\": \"RevisionHistory\"}, \"SchemaVersion\": \"96273ea926d85caccbcc8bfa94871f50\", \"State\": \"Open\", \"TeamMembers\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Project/76001020472/TeamMembers\", \"_type\": \"User\", \"Count\": 0}, \"Workspace\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/workspace/76001020136\", \"_refObjectUUID\": \"75d14ee1-cbb5-4fd6-99cb-01fdd0a877a6\", \"_refObjectName\": \"Ensight Enterprises\", \"_type\": \"Workspace\"}, \"Errors\": [], \"Warnings\": []}}",
+      "headers": {
+        "Date": "Sun, 20 Nov 2016 00:43:33 GMT",
+        "Content-Type": "application/json;  charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d59233a79cbc1a090e34913e455626aed1479602613; expires=Mon, 20-Nov-17 00:43:33 GMT; path=/; domain=.rallydev.com; HttpOnly",
+        "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
+        "X-XSS-Protection": "1; mode=block",
+        "RallyRequestID": "qs-app-04aavvxf0puovc1n4im48mpot0m.qs-app-0423423200",
+        "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+        "ETag": "W/\"0c99899b6560804e02a6f8da3b2b932a9\"",
+        "Vary": "Accept-Encoding",
+        "P3P": "CP=\"NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA\"",
+        "Cache-Control": "private,max-age=0,must-revalidate",
+        "Server": "cloudflare-nginx",
+        "CF-RAY": "3047de4e3e23261d-DFW"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

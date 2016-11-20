@@ -87,25 +87,22 @@ defmodule RallyApi.RallyQueryTest do
       pagesize = 5
 
       {:ok, %QueryResult{results: stories}} = find(@client, type, query, fetch, order: order, pagesize: pagesize)
-      assert Enum.map(stories, &(&1["FormattedID"])) == ~w(US1744 US1742 US1565 US1186 US1090)
+      assert Enum.map(stories, &(&1["FormattedID"])) == ~w(US10 US1)
     end
   end
 
   test "find/5 with valid multi-field order option" do
     use_cassette "rally_query#find_with_complex_order" do
       type = :story
-      query = "((Owner.LastName = Cartwright) OR (Owner.LastName = Malgieri))"
+      query = "(Owner.LastName = Cartwright)" 
       fetch = "Owner,FormattedID"
       order = "Owner.LastName desc, FormattedID desc"
       pagesize = 5
 
       {:ok, %QueryResult{results: stories}} = find(@client, type, query, fetch, order: order, pagesize: pagesize)
       assert Enum.map(stories, &({&1["Owner"]["_refObjectName"], &1["FormattedID"]})) == [
-        {"Seth Malgieri", "US530"},
-        {"Seth Malgieri", "US529"},
-        {"Jason Cartwright", "US1744"},
-        {"Jason Cartwright", "US1742"},
-        {"Jason Cartwright", "US1565"},
+        {"Jason Cartwright", "US10"},
+        {"Jason Cartwright", "US1"},
       ]
     end
   end
@@ -113,7 +110,7 @@ defmodule RallyApi.RallyQueryTest do
   test "read/4 supports fetch" do
     use_cassette "rally_query#read_with_fetch" do
       type = :story
-      ref = "58129183590"
+      ref = "76001886884"
       fetch = "FormattedID,Owner"
 
       {:ok, result} = read(@client, type, ref, fetch)

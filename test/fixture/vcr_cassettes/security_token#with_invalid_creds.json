@@ -1,0 +1,39 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "X-RallyIntegrationPlatform": "Elixir 1.3.4",
+        "X-RallyIntegrationLibrary": "RallyRestToolkitForElixir"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://rally1.rallydev.com/slm/webservice/v2.0/security/authorize?&"
+    },
+    "response": {
+      "body": "<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\"/>\n<title>Error 401 Full authentication is required to access this resource</title>\n</head>\n<body><h2>HTTP ERROR 401</h2>\n<p>Problem accessing /slm/webservice/v2.0/security/authorize. Reason:\n<pre>    Full authentication is required to access this resource</pre></p><hr /><i><small>Powered by Jetty://</small></i><br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n<br/>                                                \n\n</body>\n</html>\n",
+      "headers": {
+        "Date": "Sun, 20 Nov 2016 00:43:27 GMT",
+        "Content-Type": "text/html;charset=ISO-8859-1",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=dabcaac3ef14f64e4ef436f448089cf381479602607; expires=Mon, 20-Nov-17 00:43:27 GMT; path=/; domain=.rallydev.com; HttpOnly",
+        "Pragma": "no-cache",
+        "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Frame-Options": "DENY",
+        "X-Content-Type-Options": "nosniff",
+        "WWW-Authenticate": "Basic realm=\"Rally ALM\"",
+        "Cache-Control": "private,max-age=0,must-revalidate",
+        "Expires": "Sun, 20 Nov 2016 00:43:27 GMT",
+        "Vary": "Accept-Encoding",
+        "P3P": "CP=\"NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA\"",
+        "Server": "cloudflare-nginx",
+        "CF-RAY": "3047de29eb57261d-DFW"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  }
+]

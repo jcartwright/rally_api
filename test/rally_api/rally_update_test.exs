@@ -20,13 +20,11 @@ defmodule RallyApi.RallyUpdateTest do
       object_id = defect["ObjectID"]
       attrs = %{"Defect" =>
         %{"Priority" => "High Attention",
-          "c_Platform" => "Web",
           "ScheduleState" => "In-Progress"}}
 
       {:ok, %OperationResult{object: defect}} = update(@client, :defect, object_id, attrs)
 
       assert defect["Priority"] == "High Attention"
-      assert defect["c_Platform"] == "Web"
       assert defect["ScheduleState"] == "In-Progress"
     end
   end

@@ -1,0 +1,38 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "X-RallyIntegrationPlatform": "Elixir 1.3.4",
+        "X-RallyIntegrationLibrary": "RallyRestToolkitForElixir",
+        "ZSESSIONID": "***"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://rally1.rallydev.com/slm/webservice/v2.0/workspace/76001020136?&"
+    },
+    "response": {
+      "body": "{\"Workspace\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/workspace/76001020136\", \"_refObjectUUID\": \"75d14ee1-cbb5-4fd6-99cb-01fdd0a877a6\", \"_objectVersion\": \"3\", \"_refObjectName\": \"Ensight Enterprises\", \"CreationDate\": \"2016-11-17T21:03:11.122Z\", \"_CreatedAt\": \"Nov 17\", \"ObjectID\": 76001020136, \"ObjectUUID\": \"75d14ee1-cbb5-4fd6-99cb-01fdd0a877a6\", \"VersionId\": \"3\", \"Subscription\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/subscription/76001019360\", \"_refObjectUUID\": \"5d153575-38c4-4005-814e-d442e0082523\", \"_refObjectName\": \"CE - Ensight Enterprises, LLC - jason@ensightenterprises.com\", \"_type\": \"Subscription\"}, \"Children\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Workspace/76001020136/Children\", \"_type\": \"Project\", \"Count\": 3}, \"Description\": \"Ensight Enterprises bridges the gap between Business and Technology\", \"Name\": \"Ensight Enterprises\", \"Notes\": \"\", \"Owner\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/user/76001020116\", \"_refObjectUUID\": \"327a8548-0316-4c17-96b8-2196450d262b\", \"_refObjectName\": \"Jason Cartwright\", \"_type\": \"User\"}, \"Projects\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Workspace/76001020136/Projects\", \"_type\": \"Project\", \"Count\": 3}, \"RevisionHistory\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/revisionhistory/76001020140\", \"_refObjectUUID\": \"f10590e1-0ed0-4849-8932-5d9e174c5a0d\", \"_type\": \"RevisionHistory\"}, \"SchemaVersion\": \"96273ea926d85caccbcc8bfa94871f50\", \"State\": \"Open\", \"Style\": \"UserStory\", \"TypeDefinitions\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/Workspace/76001020136/TypeDefinitions\", \"_type\": \"TypeDefinition\", \"Count\": 51}, \"WorkspaceConfiguration\": {\"_rallyAPIMajor\": \"2\", \"_rallyAPIMinor\": \"0\", \"_ref\": \"https://rally1.rallydev.com/slm/webservice/v2.0/workspaceconfiguration/76001020136\", \"_refObjectUUID\": \"585ab56a-bc87-4e6b-9799-3ab8367ed1c5\", \"_type\": \"WorkspaceConfiguration\"}, \"Errors\": [], \"Warnings\": []}}",
+      "headers": {
+        "Date": "Sun, 20 Nov 2016 00:43:25 GMT",
+        "Content-Type": "application/json;  charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d17907db787a363d118fce59c14322bbc1479602604; expires=Mon, 20-Nov-17 00:43:24 GMT; path=/; domain=.rallydev.com; HttpOnly",
+        "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
+        "X-XSS-Protection": "1; mode=block",
+        "RallyRequestID": "qs-app-071wkbj4df0bixh3vwiq6mgkcax.qs-app-0724546399",
+        "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+        "ETag": "W/\"0176a5319a60b6acaf19f24a7040460e1\"",
+        "Vary": "Accept-Encoding",
+        "P3P": "CP=\"NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA\"",
+        "Cache-Control": "private,max-age=0,must-revalidate",
+        "Server": "cloudflare-nginx",
+        "CF-RAY": "3047de187d89261d-DFW"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

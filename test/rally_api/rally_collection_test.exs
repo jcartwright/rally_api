@@ -9,7 +9,7 @@ defmodule RallyApi.RallyCollectionTest do
   doctest RallyApi.RallyCollection
   
   @client Client.new(%{zsessionid: Application.get_env(:rally_api, :api_key)})
-  @artifact "https://rally1.rallydev.com/slm/webservice/v2.0/defect/67738776156"
+  @artifact "https://rally1.rallydev.com/slm/webservice/v2.0/defect/76006760256"
 
   setup do
     ExVCR.Config.filter_request_headers("ZSESSIONID")
@@ -24,15 +24,12 @@ defmodule RallyApi.RallyCollectionTest do
   end
 
   test "find/6" do
-    artifact = "https://rally1.rallydev.com/slm/webservice/v2.0/defect/63573990509"
-
     use_cassette "rally_collection#find_with_text", match_requests_on: [:query] do
-      {:ok, %QueryResult{} = result} = read(@client, artifact, :discussion)
-      assert 3 == result.total_result_count
-      
-      query = "(Text contains lorem)"
-      {:ok, %QueryResult{} = result} = find(@client, artifact, :discussion, query)
-      assert 2 == result.total_result_count
+      {:ok, result} = add(@client, @artifact, :discussion, [%{"Text" => "#{__MODULE__}"}])
+
+      query = "(Text contains \"#{__MODULE__}\")"
+      {:ok, %QueryResult{results: results}} = find(@client, @artifact, :discussion, query)
+      assert Enum.all?(results, &(&1["Text"] =~ ~r/#{__MODULE__}/))
     end
   end
 
